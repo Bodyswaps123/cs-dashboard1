@@ -108,13 +108,6 @@
   .cr-detail { font-size: 11px; color: #9ca3af; }
 
   /* AI panel */
-  .ai-panel { background: #fff; border: 1px solid #e2e4e8; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-  .ai-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-  .ai-idle { font-size: 13px; color: #9ca3af; font-style: italic; }
-  .ai-text { font-size: 13px; color: #111; line-height: 1.75; }
-  .ai-text p { margin-bottom: 10px; }
-  .ai-text p:last-child { margin-bottom: 0; }
-  .ai-loading { font-size: 13px; color: #9ca3af; }
 
   @media (max-width: 640px) {
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
@@ -282,15 +275,6 @@
     </div>
   </div>
 
-  <!-- AI panel -->
-  <div class="ai-panel">
-    <div class="ai-hdr">
-      <div class="card-title" style="margin:0">Board narrative</div>
-      <button class="rbtn" onclick="genAI()" id="aibtn">✦ Generate</button>
-    </div>
-    <div id="aiout" class="ai-idle">Click "Generate" for a board-ready narrative from all four data sources.</div>
-  </div>
-
 </div><!-- /page -->
 
 <script>
@@ -378,42 +362,6 @@ async function init() {
   updateDaysLeft();
 }
 
-async function genAI() {
-  const btn = document.getElementById('aibtn'), out = document.getElementById('aiout');
-  btn.disabled = true;
-  out.className = 'ai-loading';
-  out.textContent = 'Generating board narrative...';
-  const today = new Date();
-  const days = Math.ceil((new Date('2026-06-30') - today) / (1000 * 60 * 60 * 24));
-
-  const prompt = `You are a RevOps analyst for Bodyswaps, a B2B SaaS VR soft-skills training company. Write a board update — 3 tight paragraphs, direct, no fluff, no bullet points, no headers.
-
-Q1 (sealed): Company NRR 97.65%, Cohort NRR 70.81%, Revenue retention (TCV) 64.2%. Churn £81k ARR / 10 accounts. Cambridgeshire NHS £29k + Mondelez R&D £19k = 60% of churn. Engagement failure = 6/10 churns. Expansion £50.9k. Closing ARR £2.22M.
-
-Q2 (in progress, ${days} days left): Company NRR 106.72% snapshot. Cohort £134k ARR: £83k closed won (62%), £10.4k churned (8%), £41k open ARR (30%). Top open accounts: University of Birmingham £10k (80%), Heriot-Watt £10k (80%), Dudley College £5.9k (70%), RNN Group £4.8k (70%), Coleg Gwent £3.7k (50%, churn intent). Chiltern Railway £5.5k confirmed churn, not yet logged. Expansion YTD: £51k closed, £16.5k Health Academy open.
-
-Churn reasons 2026 YTD: engagement/adoption 8 accounts, budget 6, other 3, timing 2.
-
-Para 1: Q1 reality — name the accounts, explain the gap between 97.65% company NRR and 70.81% cohort NRR.
-Para 2: Q2 improvement — what's closed, what's still at risk, what needs to happen in ${days} days.
-Para 3: Engagement churn (8/13 accounts YTD) is a strategic signal for CS going into H2. Be specific.`;
-
-  try {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': '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', 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
-    });
-    const d = await r.json();
-    const txt = d.content?.find(b => b.type === 'text')?.text || 'Failed to generate.';
-    out.className = 'ai-text';
-    out.innerHTML = txt.split('\n\n').filter(p => p.trim()).map(p => `<p>${p.trim()}</p>`).join('');
-  } catch(e) {
-    out.className = 'ai-idle';
-    out.textContent = 'API call failed — check console.';
-  }
-  btn.disabled = false;
-}
 
 init();
 </script>
