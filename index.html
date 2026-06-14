@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bodyswaps — Existing Business 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; font-size: 14px; background: #f4f5f7; color: #111; line-height: 1.5; }
+  .page { max-width: 960px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* Header */
+  .hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #e2e4e8; }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logobadge { width: 36px; height: 36px; border-radius: 8px; background: #1a2e4a; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; color: #f97316; flex-shrink: 0; }
+  .hdr-title { font-size: 16px; font-weight: 500; color: #111; }
+  .hdr-sub { font-size: 12px; color: #6b7280; margin-top: 2px; }
+  .hdr-right { display: flex; align-items: center; gap: 12px; }
+  .status { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #6b7280; }
+  .sdot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; flex-shrink: 0; }
+  .sdot.spin { background: #f97316; animation: pulse 1.2s infinite; }
+  .sdot.err { background: #dc2626; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .rbtn { background: #fff; border: 1px solid #d1d5db; border-radius: 8px; padding: 7px 16px; font-size: 13px; font-family: inherit; cursor: pointer; color: #374151; display: flex; align-items: center; gap: 6px; }
+  .rbtn:hover { background: #f9fafb; }
+  .rbtn:disabled { opacity: .5; cursor: default; }
+
+  /* Section labels */
+  .slbl { font-size: 11px; font-weight: 500; color: #9ca3af; letter-spacing: .07em; text-transform: uppercase; margin: 0 0 10px; }
+
+  /* Retention table */
+  .card { background: #fff; border: 1px solid #e2e4e8; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .card-title { font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 14px; }
+  .ret-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .ret-table th { font-size: 11px; font-weight: 500; color: #9ca3af; text-align: left; padding: 0 8px 8px 0; border-bottom: 1px solid #f0f0f0; }
+  .ret-table th:not(:first-child) { text-align: right; }
+  .ret-table td { padding: 8px 8px 8px 0; border-bottom: 1px solid #f9fafb; font-size: 13px; }
+  .ret-table tr:last-child td { border-bottom: none; }
+  .ret-table td:not(:first-child) { text-align: right; font-weight: 500; }
+  .ret-note { font-size: 11px; color: #9ca3af; margin-top: 10px; line-height: 1.6; }
+  .col-note { font-size: 11px; color: #9ca3af; font-weight: 400 !important; text-align: left !important; padding-left: 12px !important; }
+
+  /* Q1 sealed card */
+  .q1-card { background: #f8f9fb; border: 1px solid #e2e4e8; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .q-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .q-title { font-size: 14px; font-weight: 500; color: #111; display: flex; align-items: center; gap: 8px; }
+  .sealed-badge { font-size: 10px; background: #1a2e4a; color: #fff; padding: 3px 9px; border-radius: 20px; font-weight: 400; }
+  .live-badge { font-size: 10px; background: #f97316; color: #fff; padding: 3px 9px; border-radius: 20px; font-weight: 400; display: flex; align-items: center; gap: 4px; }
+  .live-dot { width: 5px; height: 5px; border-radius: 50%; background: #fff; animation: pulse 1.2s infinite; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+  .mc { background: #fff; border: 1px solid #e2e4e8; border-radius: 8px; padding: 12px 14px; }
+  .mc.dark { background: #f8f9fb; }
+  .mc-l { font-size: 10px; color: #9ca3af; margin-bottom: 3px; }
+  .mc-v { font-size: 20px; font-weight: 500; color: #111; line-height: 1.1; }
+  .mc-v.up { color: #16a34a; }
+  .mc-v.warn { color: #d97706; }
+  .mc-v.down { color: #dc2626; }
+  .mc-s { font-size: 10px; color: #9ca3af; margin-top: 3px; }
+  .wf-mini { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .wf-l { font-size: 11px; color: #9ca3af; margin-bottom: 2px; }
+  .wf-v { font-size: 13px; font-weight: 500; color: #111; }
+  .q-note { font-size: 11px; color: #9ca3af; margin-top: 12px; line-height: 1.6; }
+
+  /* Q2 live card */
+  .q2-card { background: #fff; border: 2px solid #f97316; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .days-left { font-size: 12px; color: #6b7280; }
+  .progress-section { margin-bottom: 16px; }
+  .progress-lbl { display: flex; justify-content: space-between; font-size: 11px; color: #6b7280; margin-bottom: 6px; flex-wrap: wrap; gap: 4px; }
+  .progress-track { height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden; display: flex; }
+  .progress-legend { display: flex; gap: 14px; font-size: 11px; color: #6b7280; margin-top: 6px; }
+  .risk-strip { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 9px 14px; font-size: 12px; color: #991b1b; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+
+  /* Probability table */
+  .prob-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .prob-table th { font-size: 11px; font-weight: 500; color: #9ca3af; text-align: left; padding: 0 0 8px; border-bottom: 1px solid #f0f0f0; }
+  .prob-table td { padding: 8px 0; border-bottom: 1px solid #f9fafb; vertical-align: middle; }
+  .prob-table tr:last-child td { border-bottom: none; }
+  .prob-bar-wrap { width: 72px; height: 5px; background: #f0f0f0; border-radius: 2px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
+  .prob-bar { height: 100%; border-radius: 2px; }
+  .pill { font-size: 10px; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+  .pill-eval { background: #fef3c7; color: #92400e; }
+  .pill-risk { background: #fee2e2; color: #991b1b; }
+  .pill-aware { background: #f3f4f6; color: #6b7280; }
+
+  /* Two column */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+  /* Rows */
+  .row { display: flex; align-items: center; padding: 7px 0; border-bottom: 1px solid #f9fafb; font-size: 13px; gap: 8px; }
+  .row:last-child { border-bottom: none; }
+  .rdot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+  .rl { flex: 1; color: #6b7280; }
+  .rv { font-weight: 500; text-align: right; min-width: 60px; }
+  .note { font-size: 11px; color: #9ca3af; margin-top: 8px; line-height: 1.6; }
+
+  /* Churn reason rows */
+  .cr-row { padding: 8px 0; border-bottom: 1px solid #f9fafb; }
+  .cr-row:last-child { border-bottom: none; }
+  .cr-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .cr-lbl { flex: 1; font-size: 13px; color: #111; }
+  .cr-cnt { font-size: 13px; font-weight: 500; }
+  .cr-track { height: 4px; background: #f0f0f0; border-radius: 2px; overflow: hidden; margin-bottom: 3px; }
+  .cr-bar { height: 100%; background: #1a2e4a; border-radius: 2px; }
+  .cr-detail { font-size: 11px; color: #9ca3af; }
+
+  /* AI panel */
+  .ai-panel { background: #fff; border: 1px solid #e2e4e8; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .ai-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .ai-idle { font-size: 13px; color: #9ca3af; font-style: italic; }
+  .ai-text { font-size: 13px; color: #111; line-height: 1.75; }
+  .ai-text p { margin-bottom: 10px; }
+  .ai-text p:last-child { margin-bottom: 0; }
+  .ai-loading { font-size: 13px; color: #9ca3af; }
+
+  @media (max-width: 640px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .wf-mini { grid-template-columns: repeat(2, 1fr); }
+    .two { grid-template-columns: 1fr; }
+    .ret-table .col-note { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="logo">
+      <div class="logobadge">B</div>
+      <div>
+        <div class="hdr-title">Existing business — 2026</div>
+        <div class="hdr-sub">Formula Tab · 2026 CS · All Churned · Expansion</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="status"><div class="sdot spin" id="sdot"></div><span id="stxt">Loading...</span></div>
+      <button class="rbtn" onclick="init()">↻ Refresh</button>
+    </div>
+  </div>
+
+  <!-- Retention table -->
+  <div class="slbl">Retention — three lenses</div>
+  <div class="card">
+    <table class="ret-table">
+      <thead>
+        <tr>
+          <th style="min-width:140px">Metric</th>
+          <th>Q1 2026</th>
+          <th>Q2 2026</th>
+          <th>Q3 2026</th>
+          <th>Q4 2026</th>
+          <th class="col-note">What it measures</th>
+        </tr>
+      </thead>
+      <tbody id="retBody"></tbody>
+    </table>
+    <div class="ret-note">* Q3/Q4 near-zero — pipeline still open, figures will close upward as renewals complete. Company NRR diverges from cohort NRR because expansion on the full ARR base partially offsets weak individual renewal rates. Revenue retention (TCV) tends to read lowest as it captures full contract value lost vs renewed.</div>
+  </div>
+
+  <!-- Q1 sealed card -->
+  <div class="slbl">Q1 2026 — sealed</div>
+  <div class="q1-card">
+    <div class="q-hdr">
+      <div class="q-title">Q1 2026 <span class="sealed-badge">Closed · Jan 1 – Mar 31</span></div>
+    </div>
+    <div class="metrics-grid">
+      <div class="mc"><div class="mc-l">Company NRR</div><div class="mc-v warn">97.65%</div><div class="mc-s">Slightly below 100%</div></div>
+      <div class="mc"><div class="mc-l">Cohort NRR</div><div class="mc-v down">70.81%</div><div class="mc-s">£248k → £176k ARR</div></div>
+      <div class="mc"><div class="mc-l">Revenue retention</div><div class="mc-v down">64.2%</div><div class="mc-s">£361k → £232k TCV</div></div>
+      <div class="mc"><div class="mc-l">Churn (ARR)</div><div class="mc-v down">£81,144</div><div class="mc-s">10 accounts</div></div>
+    </div>
+    <div class="wf-mini">
+      <div><div class="wf-l">Opening ARR</div><div class="wf-v">£2,270,921</div></div>
+      <div><div class="wf-l" style="color:#dc2626">Churn + contraction</div><div class="wf-v" style="color:#dc2626">−£104,272</div></div>
+      <div><div class="wf-l" style="color:#16a34a">Expansion</div><div class="wf-v" style="color:#16a34a">+£50,946</div></div>
+      <div><div class="wf-l">Closing ARR</div><div class="wf-v">£2,217,595</div></div>
+    </div>
+    <div class="q-note">Cambridgeshire NHS (£29k) and Mondelez R&D (£19k) were 60% of Q1 churn ARR. 6 of 10 churns driven by engagement failure — licence unused or champion left.</div>
+  </div>
+
+  <!-- Q2 live card -->
+  <div class="slbl">Q2 2026 — in progress</div>
+  <div class="q2-card">
+    <div class="q-hdr">
+      <div class="q-title">Q2 2026 <span class="live-badge"><span class="live-dot"></span>In progress</span></div>
+      <div class="days-left" id="daysLeft">17 days remaining</div>
+    </div>
+    <div class="metrics-grid">
+      <div class="mc dark"><div class="mc-l">Company NRR</div><div class="mc-v up">106.72%</div><div class="mc-s">Snapshot to date</div></div>
+      <div class="mc dark"><div class="mc-l">Cohort NRR</div><div class="mc-v warn">67.76%</div><div class="mc-s">£139k → £94k ARR so far</div></div>
+      <div class="mc dark"><div class="mc-l">Closed won (ARR)</div><div class="mc-v up">£82,971</div><div class="mc-s">62% of Q2 cohort</div></div>
+      <div class="mc dark"><div class="mc-l">Open ARR</div><div class="mc-v warn">£40,912</div><div class="mc-s">7 accounts remaining</div></div>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-lbl">
+        <span style="font-weight:500">Q2 cohort: £134,324 ARR</span>
+      </div>
+      <div class="progress-track">
+        <div style="width:62%;height:100%;background:#16a34a"></div>
+        <div style="width:8%;height:100%;background:#dc2626"></div>
+        <div style="width:30%;height:100%;background:#f97316;opacity:0.5"></div>
+      </div>
+      <div class="progress-legend">
+        <span>■ <span style="color:#16a34a">Won £82,971 (62%)</span></span>
+        <span>■ <span style="color:#dc2626">Churned £10,441 (8%)</span></span>
+        <span>■ <span style="color:#f97316">Open ARR £40,912 (30%)</span></span>
+      </div>
+    </div>
+
+    <div class="risk-strip">
+      ⚠ Chiltern Railway (£5,500 ARR) — confirmed churn intent · 0% probability · not yet closed in system
+    </div>
+
+    <div class="card-title">Top 5 open renewals — Q2</div>
+    <table class="prob-table">
+      <thead>
+        <tr>
+          <th style="min-width:180px">Account</th>
+          <th>ARR</th>
+          <th>Probability</th>
+          <th style="text-align:right">Stage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>University of Birmingham</td>
+          <td>£10,000</td>
+          <td><div class="prob-bar-wrap"><div class="prob-bar" style="width:80%;background:#16a34a"></div></div>80%</td>
+          <td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td>
+        </tr>
+        <tr>
+          <td>Heriot-Watt — Resilience</td>
+          <td>£10,000</td>
+          <td><div class="prob-bar-wrap"><div class="prob-bar" style="width:80%;background:#16a34a"></div></div>80%</td>
+          <td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td>
+        </tr>
+        <tr>
+          <td>Dudley College</td>
+          <td>£5,950</td>
+          <td><div class="prob-bar-wrap"><div class="prob-bar" style="width:70%;background:#d97706"></div></div>70%</td>
+          <td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td>
+        </tr>
+        <tr>
+          <td>RNN Group</td>
+          <td>£4,800</td>
+          <td><div class="prob-bar-wrap"><div class="prob-bar" style="width:70%;background:#d97706"></div></div>70%</td>
+          <td style="text-align:right"><span class="pill pill-aware">Awareness</span></td>
+        </tr>
+        <tr>
+          <td>Coleg Gwent (x2 deals)</td>
+          <td>£3,700</td>
+          <td><div class="prob-bar-wrap"><div class="prob-bar" style="width:50%;background:#dc2626"></div></div>50%</td>
+          <td style="text-align:right"><span class="pill pill-risk">Churn intent</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:10px">£34,450 open ARR across top 5. Birmingham + Heriot-Watt (£20k combined, both 80%) are the Q2 priority. University of St Thomas (£962 · 75%) also open but immaterial to the quarter.</div>
+  </div>
+
+  <!-- Bottom two panels -->
+  <div class="two">
+    <div class="card">
+      <div class="card-title">Churn reasons — 2026 YTD</div>
+      <div id="churnReasons"></div>
+      <div class="note">13 confirmed churns Jan–Jun 2026. Engagement is the dominant driver — not price. Signals a CS deployment problem, not a product problem.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Expansion closed — 2026 YTD</div>
+      <div class="row"><div class="rdot" style="background:#16a34a"></div><span class="rl">Neath Port Talbot (cross-sell)</span><span class="rv" style="color:#16a34a">£15,120</span></div>
+      <div class="row"><div class="rdot" style="background:#16a34a"></div><span class="rl">CGA Chiltern (win-back)</span><span class="rv" style="color:#16a34a">£15,000</span></div>
+      <div class="row"><div class="rdot" style="background:#16a34a"></div><span class="rl">EmployAbilities Edmonton</span><span class="rv" style="color:#16a34a">£5,651</span></div>
+      <div class="row"><div class="rdot" style="background:#16a34a"></div><span class="rl">NE Wisconsin (cross-sell)</span><span class="rv" style="color:#16a34a">£6,665</span></div>
+      <div class="row"><div class="rdot" style="background:#16a34a"></div><span class="rl">S. Connecticut Nursing</span><span class="rv" style="color:#16a34a">£4,259</span></div>
+      <div class="row"><div class="rdot" style="background:#16a34a"></div><span class="rl">Cavan ETB Engineering</span><span class="rv" style="color:#16a34a">£4,344</span></div>
+      <div class="row"><div class="rdot" style="background:#d97706"></div><span class="rl">Health Academy upsell (open)</span><span class="rv" style="color:#d97706">£16,450</span></div>
+      <div class="note">Closed YTD: £51,039. Health Academy (£16,450 ARR) still open — closes Q2. Total if lands: £67,489.</div>
+    </div>
+  </div>
+
+  <!-- AI panel -->
+  <div class="ai-panel">
+    <div class="ai-hdr">
+      <div class="card-title" style="margin:0">Board narrative</div>
+      <button class="rbtn" onclick="genAI()" id="aibtn">✦ Generate</button>
+    </div>
+    <div id="aiout" class="ai-idle">Click "Generate" for a board-ready narrative from all four data sources.</div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+const APPS_URL = 'https://script.google.com/macros/s/AKfycbyyf0S8yY9aTqcvwMvmPIHL0nuwH-cy68ciwmAa9jwfVufcoA6gKJgQswjVtMy9ESHj/exec';
+
+function setStatus(s, t) {
+  const d = document.getElementById('sdot'), tx = document.getElementById('stxt');
+  d.className = 'sdot' + (s === 'spin' ? ' spin' : s === 'err' ? ' err' : '');
+  tx.textContent = t;
+}
+
+function renderRetTable(data) {
+  const rows = [
+    { label: 'Company NRR', q1: '97.65%', q2: '106.72%', q3: 'Partial', q4: '—', note: 'Waterfall on full ARR base', q1c: '#d97706', q2c: '#16a34a' },
+    { label: 'Cohort NRR', q1: '70.81%', q2: '67.76%', q3: '0.26%*', q4: '—', note: 'Accounts due for renewal, churns in denominator', q1c: '#dc2626', q2c: '#dc2626' },
+    { label: 'Revenue retention (TCV)', q1: '64.2%', q2: '68.6%', q3: '0.77%*', q4: '—', note: 'TCV retained of TCV due', q1c: '#dc2626', q2c: '#dc2626' },
+  ];
+
+  // Override with live data if available
+  if (data && data['Formula Tab']) {
+    try {
+      const ft = data['Formula Tab'];
+      const q1nrr = ft.find(r => r[1] === 'Q1' && typeof r[6] === 'number');
+      const q2nrr = ft.find(r => r[1] === 'Q2' && typeof r[6] === 'number');
+      if (q1nrr) rows[0].q1 = (q1nrr[6] * 100).toFixed(2) + '%';
+      if (q2nrr) rows[0].q2 = (q2nrr[6] * 100).toFixed(2) + '%';
+      const cohQ1 = ft.find(r => r[1] === 'Q1' && typeof r[4] === 'number' && r[4] < 1 && r[4] > 0);
+      const cohQ2 = ft.find(r => r[1] === 'Q2' && typeof r[4] === 'number' && r[4] < 1 && r[4] > 0);
+      if (cohQ1) rows[1].q1 = (cohQ1[4] * 100).toFixed(2) + '%';
+      if (cohQ2) rows[1].q2 = (cohQ2[4] * 100).toFixed(2) + '%';
+    } catch(e) {}
+  }
+
+  document.getElementById('retBody').innerHTML = rows.map(r => `
+    <tr>
+      <td style="color:#6b7280">${r.label}</td>
+      <td style="color:${r.q1c}">${r.q1}</td>
+      <td style="color:${r.q2c}">${r.q2}</td>
+      <td style="color:#9ca3af;font-weight:400">${r.q3}</td>
+      <td style="color:#9ca3af;font-weight:400">${r.q4}</td>
+      <td class="col-note">${r.note}</td>
+    </tr>`).join('');
+}
+
+function renderChurnReasons() {
+  const reasons = [
+    { label: 'Engagement / adoption failure', count: 8, detail: 'Licence unused, champion left, deployment failed' },
+    { label: 'Budget / funding ended', count: 6, detail: 'Grant expiry, institutional cuts' },
+    { label: 'Other / project ended', count: 3, detail: 'One-off project complete, M&A' },
+    { label: 'Timing — intend to return', count: 2, detail: 'Pausing, not permanently leaving' },
+  ];
+  const max = reasons[0].count;
+  document.getElementById('churnReasons').innerHTML = reasons.map(r => `
+    <div class="cr-row">
+      <div class="cr-top">
+        <span class="cr-lbl">${r.label}</span>
+        <span class="cr-cnt">${r.count}</span>
+      </div>
+      <div class="cr-track"><div class="cr-bar" style="width:${Math.round(r.count/max*100)}%"></div></div>
+      <div class="cr-detail">${r.detail}</div>
+    </div>`).join('');
+}
+
+function updateDaysLeft() {
+  const today = new Date();
+  const q2end = new Date('2026-06-30');
+  const days = Math.ceil((q2end - today) / (1000 * 60 * 60 * 24));
+  const el = document.getElementById('daysLeft');
+  if (el) el.textContent = days > 0 ? days + ' days remaining in Q2' : 'Q2 closed';
+}
+
+async function init() {
+  setStatus('spin', 'Fetching live data...');
+  try {
+    const r = await fetch(APPS_URL);
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    renderRetTable(data);
+    setStatus('ok', 'Live — ' + new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }));
+  } catch(e) {
+    renderRetTable(null);
+    setStatus('err', 'Sheet unreachable — showing last data');
+  }
+  renderChurnReasons();
+  updateDaysLeft();
+}
+
+async function genAI() {
+  const btn = document.getElementById('aibtn'), out = document.getElementById('aiout');
+  btn.disabled = true;
+  out.className = 'ai-loading';
+  out.textContent = 'Generating board narrative...';
+  const today = new Date();
+  const days = Math.ceil((new Date('2026-06-30') - today) / (1000 * 60 * 60 * 24));
+
+  const prompt = `You are a RevOps analyst for Bodyswaps, a B2B SaaS VR soft-skills training company. Write a board update — 3 tight paragraphs, direct, no fluff, no bullet points, no headers.
+
+Q1 (sealed): Company NRR 97.65%, Cohort NRR 70.81%, Revenue retention (TCV) 64.2%. Churn £81k ARR / 10 accounts. Cambridgeshire NHS £29k + Mondelez R&D £19k = 60% of churn. Engagement failure = 6/10 churns. Expansion £50.9k. Closing ARR £2.22M.
+
+Q2 (in progress, ${days} days left): Company NRR 106.72% snapshot. Cohort £134k ARR: £83k closed won (62%), £10.4k churned (8%), £41k open ARR (30%). Top open accounts: University of Birmingham £10k (80%), Heriot-Watt £10k (80%), Dudley College £5.9k (70%), RNN Group £4.8k (70%), Coleg Gwent £3.7k (50%, churn intent). Chiltern Railway £5.5k confirmed churn, not yet logged. Expansion YTD: £51k closed, £16.5k Health Academy open.
+
+Churn reasons 2026 YTD: engagement/adoption 8 accounts, budget 6, other 3, timing 2.
+
+Para 1: Q1 reality — name the accounts, explain the gap between 97.65% company NRR and 70.81% cohort NRR.
+Para 2: Q2 improvement — what's closed, what's still at risk, what needs to happen in ${days} days.
+Para 3: Engagement churn (8/13 accounts YTD) is a strategic signal for CS going into H2. Be specific.`;
+
+  try {
+    const r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
+    });
+    const d = await r.json();
+    const txt = d.content?.find(b => b.type === 'text')?.text || 'Failed to generate.';
+    out.className = 'ai-text';
+    out.innerHTML = txt.split('\n\n').filter(p => p.trim()).map(p => `<p>${p.trim()}</p>`).join('');
+  } catch(e) {
+    out.className = 'ai-idle';
+    out.textContent = 'API call failed — check console.';
+  }
+  btn.disabled = false;
+}
+
+init();
+</script>
+</body>
+</html>
