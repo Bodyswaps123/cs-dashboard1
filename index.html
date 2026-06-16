@@ -25,8 +25,6 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 .card{background:#fff;border:1px solid #e2e4e8;border-radius:12px;padding:20px;margin-bottom:20px}
 .card-title{font-size:13px;font-weight:500;color:#374151;margin-bottom:14px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
-
-/* Retention table */
 .ret-tbl{width:100%;border-collapse:collapse;font-size:13px}
 .ret-tbl th{font-size:11px;font-weight:500;color:#9ca3af;text-align:left;padding:0 8px 8px 0;border-bottom:1px solid #f0f0f0}
 .ret-tbl th:not(:first-child){text-align:right}
@@ -34,8 +32,6 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 .ret-tbl tr:last-child td{border-bottom:none}
 .ret-tbl td:not(:first-child){text-align:right;font-weight:500}
 .col-note{font-size:11px;color:#9ca3af;font-weight:400!important;text-align:left!important;padding-left:12px!important}
-
-/* KPI grid */
 .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
 .mc{background:#fff;border:1px solid #e2e4e8;border-radius:8px;padding:12px 14px}
 .mc.bg{background:#f8f9fb}
@@ -43,41 +39,26 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 .mc-v{font-size:20px;font-weight:500;color:#111;line-height:1.1}
 .mc-v.up{color:#16a34a}.mc-v.warn{color:#d97706}.mc-v.dn{color:#dc2626}
 .mc-s{font-size:10px;color:#9ca3af;margin-top:3px}
-
-/* Q1 sealed */
 .q1-card{background:#f8f9fb;border:1px solid #e2e4e8;border-radius:12px;padding:20px;margin-bottom:20px}
+.q2-card{background:#fff;border:2px solid #f97316;border-radius:12px;padding:20px;margin-bottom:20px}
 .q-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .q-title{font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px}
 .sealed{font-size:10px;background:#1a2e4a;color:#fff;padding:3px 9px;border-radius:20px;font-weight:400}
+.live-badge{font-size:10px;background:#f97316;color:#fff;padding:3px 9px;border-radius:20px;display:flex;align-items:center;gap:4px}
+.live-dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
 .wf-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .wf-l{font-size:11px;color:#9ca3af;margin-bottom:2px}
 .wf-v{font-size:13px;font-weight:500}
 .q-note{font-size:11px;color:#9ca3af;margin-top:12px;line-height:1.6}
-
-/* Q2 live */
-.q2-card{background:#fff;border:2px solid #f97316;border-radius:12px;padding:20px;margin-bottom:20px}
-.live-badge{font-size:10px;background:#f97316;color:#fff;padding:3px 9px;border-radius:20px;display:flex;align-items:center;gap:4px}
-.live-dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
-
-/* Progress bars */
-.prog-section{margin-bottom:16px}
 .prog-row{margin-bottom:10px}
-.prog-lbl-row{display:flex;justify-content:space-between;font-size:11px;color:#6b7280;margin-bottom:4px}
-.prog-lbl-row span:first-child{font-weight:500;color:#111}
-.prog-track{height:8px;background:#f0f0f0;border-radius:4px;overflow:visible;display:flex;position:relative}
-.prog-won{height:100%;background:#16a34a;border-radius:4px 0 0 4px}
-.prog-churn{height:100%;background:#dc2626}
-.prog-open{height:100%;background:#f97316;opacity:0.45;border-radius:0 4px 4px 0}
-.prog-over{height:100%;background:#16a34a;border-radius:0 4px 4px 0;opacity:0.6}
+.prog-lbl-row{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px;flex-wrap:wrap;gap:4px}
+.prog-lbl-row span:first-child{font-weight:500}
+.prog-track{height:8px;background:#f0f0f0;border-radius:4px;overflow:hidden;display:flex}
 .prog-legend{display:flex;gap:14px;font-size:11px;color:#6b7280;margin-top:5px;flex-wrap:wrap}
-.counts-row{display:flex;gap:16px;font-size:12px;margin-top:8px;margin-bottom:14px}
+.counts-row{display:flex;gap:16px;font-size:12px;margin:8px 0 14px}
 .cnt-item{display:flex;align-items:center;gap:5px}
 .cnt-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
-
-/* Risk strip */
 .risk-strip{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:9px 14px;font-size:12px;color:#991b1b;margin-bottom:14px}
-
-/* Prob table */
 .prob-tbl{width:100%;border-collapse:collapse;font-size:13px}
 .prob-tbl th{font-size:11px;font-weight:500;color:#9ca3af;text-align:left;padding:0 0 8px;border-bottom:1px solid #f0f0f0}
 .prob-tbl td{padding:8px 0;border-bottom:1px solid #f9fafb;vertical-align:middle}
@@ -88,16 +69,14 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 .pill-eval{background:#fef3c7;color:#92400e}
 .pill-risk{background:#fee2e2;color:#991b1b}
 .pill-aware{background:#f3f4f6;color:#6b7280}
-
-/* Rows */
+.pill-dm{background:#ede9fe;color:#5b21b6}
+.pill-contract{background:#d1fae5;color:#065f46}
 .row{display:flex;align-items:center;padding:7px 0;border-bottom:1px solid #f9fafb;font-size:13px;gap:8px}
 .row:last-child{border-bottom:none}
 .rdot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .rl{flex:1;color:#6b7280}
 .rv{font-weight:500;text-align:right;min-width:60px}
 .note{font-size:11px;color:#9ca3af;margin-top:8px;line-height:1.6}
-
-/* Churn reasons */
 .cr-row{padding:8px 0;border-bottom:1px solid #f9fafb}
 .cr-row:last-child{border-bottom:none}
 .cr-top{display:flex;align-items:center;gap:8px;margin-bottom:4px}
@@ -106,8 +85,6 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 .cr-track{height:4px;background:#f0f0f0;border-radius:2px;overflow:hidden;margin-bottom:3px}
 .cr-bar{height:100%;background:#1a2e4a;border-radius:2px}
 .cr-detail{font-size:11px;color:#9ca3af}
-
-/* Expansion table */
 .exp-tbl{width:100%;border-collapse:collapse;font-size:13px}
 .exp-tbl th{font-size:11px;font-weight:500;color:#9ca3af;text-align:left;padding:0 8px 8px 0;border-bottom:1px solid #f0f0f0}
 .exp-tbl th:not(:first-child){text-align:right}
@@ -115,10 +92,27 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 .exp-tbl tr:last-child td{border-bottom:none}
 .exp-tbl td:not(:first-child){text-align:right;font-weight:500}
 
+/* Spotlight cards */
+.spotlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.spotlight-card{background:#fff;border:1px solid #e2e4e8;border-radius:12px;padding:20px}
+.spotlight-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.spotlight-title{font-size:13px;font-weight:500}
+.spotlight-badge{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:400}
+.sb-current{background:#fef3c7;color:#92400e}
+.sb-next{background:#ede9fe;color:#5b21b6}
+.spotlight-item{padding:10px 0;border-bottom:1px solid #f9fafb}
+.spotlight-item:last-child{border-bottom:none}
+.si-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:3px}
+.si-name{font-size:12px;font-weight:500;color:#111;flex:1}
+.si-tcv{font-size:13px;font-weight:500;color:#16a34a;white-space:nowrap}
+.si-meta{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.si-note{font-size:11px;color:#6b7280;font-style:italic;line-height:1.4}
+
 @media(max-width:640px){
   .metrics-grid{grid-template-columns:repeat(2,1fr)}
   .wf-mini{grid-template-columns:repeat(2,1fr)}
   .two{grid-template-columns:1fr}
+  .spotlight-grid{grid-template-columns:1fr}
   .col-note{display:none}
 }
 </style>
@@ -131,7 +125,7 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
     <div class="logobadge">B</div>
     <div>
       <div class="hdr-title">Existing business — 2026</div>
-      <div class="hdr-sub">Formula Tab · 2026 CS · All Churned · Expansion</div>
+      <div class="hdr-sub">Formula Tab · 2026 CS · All Churned · Expansion Opportunities</div>
     </div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
@@ -153,7 +147,7 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
     </thead>
     <tbody id="retBody"></tbody>
   </table>
-  <div class="note" style="margin-top:10px">* Q3/Q4 near-zero — pipeline still open, figures close upward as renewals complete. Company NRR diverges from cohort NRR because expansion on the full ARR base partially offsets weak individual renewal rates. Revenue retention (TCV) measures full contract value retained.</div>
+  <div class="note" style="margin-top:10px">* Q3/Q4 near-zero — pipeline open, figures close upward as renewals complete. Company NRR diverges from cohort NRR because expansion on the full ARR base partially offsets weak individual renewal rates.</div>
 </div>
 
 <!-- Q1 sealed -->
@@ -174,7 +168,7 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
     <div><div class="wf-l" style="color:#16a34a">Expansion</div><div class="wf-v" style="color:#16a34a">+£50,946</div></div>
     <div><div class="wf-l">Closing ARR</div><div class="wf-v">£2,217,595</div></div>
   </div>
-  <div class="q-note">Cambridgeshire NHS (£29k) and Mondelez R&D (£19k) were 60% of Q1 churn ARR. 6 of 10 churns driven by engagement failure — licence unused or champion left.</div>
+  <div class="q-note">Cambridgeshire NHS (£29k) and Mondelez R&D (£19k) were 60% of Q1 churn ARR. 6 of 10 churns driven by engagement failure.</div>
 </div>
 
 <!-- Q2 live -->
@@ -184,52 +178,45 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
     <div class="q-title">Q2 2026 <span class="live-badge"><span class="live-dot"></span>In progress</span></div>
     <div style="font-size:12px;color:#6b7280" id="daysLeft"></div>
   </div>
-
   <div class="metrics-grid">
-    <div class="mc bg"><div class="mc-l">Company NRR</div><div class="mc-v up">106.28%</div><div class="mc-s">Snapshot to date</div></div>
-    <div class="mc bg"><div class="mc-l">Cohort NRR</div><div class="mc-v warn">68.18%</div><div class="mc-s">£152k → £103k ARR</div></div>
+    <div class="mc bg"><div class="mc-l">Company NRR</div><div class="mc-v up" id="q2cnrr">106.28%</div><div class="mc-s">Snapshot to date</div></div>
+    <div class="mc bg"><div class="mc-l">Cohort NRR</div><div class="mc-v warn" id="q2cohnrr">68.18%</div><div class="mc-s" id="q2cohnrrSub">£152k → £103k ARR</div></div>
     <div class="mc bg"><div class="mc-l">Revenue retention</div><div class="mc-v up" id="q2revret">91.7%</div><div class="mc-s" id="q2revretSub">£229k → £210k TCV</div></div>
     <div class="mc bg"><div class="mc-l">Open ARR</div><div class="mc-v warn">£40,912</div><div class="mc-s">7 accounts remaining</div></div>
   </div>
-
-  <!-- TCV progress bar -->
-  <div class="prog-section">
-    <div class="prog-row">
-      <div class="prog-lbl-row">
-        <span>TCV to renew: <span id="tcvTotal">—</span></span>
-        <span id="tcvPcts" style="color:#6b7280"></span>
-      </div>
-      <div class="prog-track" id="tcvBar">
-        <div class="prog-won" style="width:62%"></div>
-        <div class="prog-churn" style="width:3%"></div>
-        <div class="prog-open" style="width:35%"></div>
-      </div>
+  <div class="prog-row">
+    <div class="prog-lbl-row">
+      <span>TCV to renew: <span id="tcvTotal">£229,097</span></span>
+      <span id="tcvPcts" style="color:#6b7280">Won £210,125 · Churned £10,441 · Open £8,531</span>
     </div>
-    <div class="prog-row">
-      <div class="prog-lbl-row">
-        <span>ARR to renew: <span id="arrTotal">—</span></span>
-        <span id="arrPcts" style="color:#6b7280"></span>
-      </div>
-      <div class="prog-track" id="arrBar">
-        <div class="prog-won" style="width:62%"></div>
-        <div class="prog-churn" style="width:8%"></div>
-        <div class="prog-open" style="width:30%"></div>
-      </div>
-    </div>
-    <div class="prog-legend">
-      <span>■ <span style="color:#16a34a">Renewed</span></span>
-      <span>■ <span style="color:#dc2626">Churned</span></span>
-      <span>■ <span style="color:#f97316">Open</span></span>
-    </div>
-    <div class="counts-row" id="countRow">
-      <div class="cnt-item"><div class="cnt-dot" style="background:#16a34a"></div><span id="cntWon">—</span> renewed</div>
-      <div class="cnt-item"><div class="cnt-dot" style="background:#dc2626"></div><span id="cntChurn">3</span> churned</div>
-      <div class="cnt-item"><div class="cnt-dot" style="background:#f97316"></div><span id="cntOpen">—</span> still open</div>
+    <div class="prog-track" id="tcvBar">
+      <div style="width:92%;height:100%;background:#16a34a"></div>
+      <div style="width:5%;height:100%;background:#dc2626"></div>
+      <div style="width:3%;height:100%;background:#f97316;opacity:0.5"></div>
     </div>
   </div>
-
-  <div class="risk-strip">⚠ Chiltern Railway (£5,500 ARR) — confirmed churn intent · 0% probability · not yet closed in system</div>
-
+  <div class="prog-row">
+    <div class="prog-lbl-row">
+      <span>ARR to renew: <span id="arrTotal">£151,522</span></span>
+      <span id="arrPcts" style="color:#6b7280">Won £103,301 · Churned £10,441 · Open £37,780 ARR</span>
+    </div>
+    <div class="prog-track" id="arrBar">
+      <div style="width:68%;height:100%;background:#16a34a"></div>
+      <div style="width:7%;height:100%;background:#dc2626"></div>
+      <div style="width:25%;height:100%;background:#f97316;opacity:0.5"></div>
+    </div>
+  </div>
+  <div class="prog-legend">
+    <span>■ <span style="color:#16a34a">Renewed</span></span>
+    <span>■ <span style="color:#dc2626">Churned</span></span>
+    <span>■ <span style="color:#f97316">Open ARR</span></span>
+  </div>
+  <div class="counts-row" id="countRow">
+    <div class="cnt-item"><div class="cnt-dot" style="background:#16a34a"></div><span id="cntWon">—</span> renewed</div>
+    <div class="cnt-item"><div class="cnt-dot" style="background:#dc2626"></div><span id="cntChurn">3</span> churned</div>
+    <div class="cnt-item"><div class="cnt-dot" style="background:#f97316"></div><span id="cntOpen">—</span> still open</div>
+  </div>
+  <div class="risk-strip">⚠ Chiltern Railway (£5,500 ARR) — confirmed churn intent · 0% · not yet closed in system</div>
   <div class="card-title">Top 5 open renewals — Q2</div>
   <table class="prob-tbl">
     <thead><tr><th style="min-width:180px">Account</th><th>ARR</th><th>Probability</th><th style="text-align:right">Stage</th></tr></thead>
@@ -238,30 +225,31 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
       <tr><td>Heriot-Watt — Resilience</td><td>£10,000</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:80%;background:#16a34a"></div></div>80%</td><td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td></tr>
       <tr><td>Dudley College</td><td>£5,950</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:70%;background:#d97706"></div></div>70%</td><td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td></tr>
       <tr><td>RNN Group</td><td>£4,800</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:70%;background:#d97706"></div></div>70%</td><td style="text-align:right"><span class="pill pill-aware">Awareness</span></td></tr>
-      <tr><td>Coleg Gwent (x2 deals)</td><td>£3,700</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:50%;background:#dc2626"></div></div>50%</td><td style="text-align:right"><span class="pill pill-risk">Churn intent</span></td></tr>
+      <tr><td>Coleg Gwent (x2)</td><td>£3,700</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:50%;background:#dc2626"></div></div>50%</td><td style="text-align:right"><span class="pill pill-risk">Churn intent</span></td></tr>
     </tbody>
   </table>
-  <div class="note" style="margin-top:10px">£34,450 open ARR across top 5. Birmingham + Heriot-Watt (£20k combined, 80%) are the Q2 priority to close before Jun 30.</div>
+  <div class="note" style="margin-top:10px">£34,450 open ARR. Birmingham + Heriot-Watt (£20k, 80%) are the Q2 priority.</div>
 </div>
 
-<!-- Expansion -->
-<div class="slbl">Expansion pipeline — from Formula Tab</div>
-<div class="card">
-  <table class="exp-tbl">
-    <thead>
-      <tr>
-        <th>Quarter</th>
-        <th>Upsell (closed TCV)</th>
-        <th>Cross-sell (closed TCV)</th>
-        <th>Total closed</th>
-        <th>Upsell forecast</th>
-        <th>Cross-sell forecast</th>
-        <th>Total pipeline</th>
-      </tr>
-    </thead>
-    <tbody id="expBody"></tbody>
-  </table>
-  <div class="note" style="margin-top:10px">Closed = won deals. Forecast = pipeline not yet closed. Q3 cross-sell forecast (£185k) is dominated by Northeast Wisconsin (£80k) and Kaiser Foundation (£24.5k).</div>
+<!-- Expansion spotlights -->
+<div class="slbl">Expansion spotlight</div>
+<div class="spotlight-grid">
+  <div class="spotlight-card">
+    <div class="spotlight-hdr">
+      <div class="spotlight-title">Q2 — current quarter</div>
+      <span class="spotlight-badge sb-current">Open pipeline only</span>
+    </div>
+    <div id="q2Spotlight"><div style="font-size:12px;color:#9ca3af">Loading...</div></div>
+    <div class="note" style="margin-top:10px">Excludes Closed Won and Closed Lost. Top 5 by TCV.</div>
+  </div>
+  <div class="spotlight-card">
+    <div class="spotlight-hdr">
+      <div class="spotlight-title">Q3 — next quarter</div>
+      <span class="spotlight-badge sb-next">Building pipeline</span>
+    </div>
+    <div id="q3Spotlight"><div style="font-size:12px;color:#9ca3af">Loading...</div></div>
+    <div class="note" style="margin-top:10px">Excludes Closed Won and Closed Lost. Top 5 by TCV.</div>
+  </div>
 </div>
 
 <!-- Bottom two panels -->
@@ -269,7 +257,7 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
   <div class="card">
     <div class="card-title">Churn reasons — 2026 YTD</div>
     <div id="churnReasons"></div>
-    <div class="note">13 confirmed churns Jan–Jun 2026. Engagement is the dominant driver — not price. Signals a CS deployment problem, not a product problem.</div>
+    <div class="note">13 confirmed churns Jan–Jun 2026. Engagement is the dominant driver — not price.</div>
   </div>
   <div class="card">
     <div class="card-title">Revenue retention by quarter (TCV)</div>
@@ -285,33 +273,75 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 <script>
 const APPS_URL='https://script.google.com/macros/s/AKfycbyyf0S8yY9aTqcvwMvmPIHL0nuwH-cy68ciwmAa9jwfVufcoA6gKJgQswjVtMy9ESHj/exec';
 
-const FALLBACK={
+const FB={
   companyNRR:{Q1:97.65,Q2:106.28},
   cohortNRR:{Q1:70.81,Q2:68.18},
   cohortARR:{Q1:{s:248693,e:176102},Q2:{s:151522,e:103301}},
   revRet:{Q1:{t:361419,a:231870},Q2:{t:229097,a:210125},Q3:{t:680189,a:17220},Q4:{t:334041,a:0}},
-  churnTCV:{Q1:97444,Q2:10441,Q3:27043,Q4:0},
-  churnCnt:{Q1:10,Q2:3,Q3:2,Q4:0},
-  upsellTCV:{Q1:27412,Q2:19919,Q3:0,Q4:0},
-  upsellCnt:{Q1:7,Q2:2,Q3:0,Q4:0},
-  crossTCV:{Q1:38739,Q2:22262,Q3:0,Q4:0},
-  crossCnt:{Q1:3,Q2:2,Q3:0,Q4:0},
-  forecastExp:{Q1:{u:8881,c:14000},Q2:{u:13042,c:101782},Q3:{u:21227,c:185104},Q4:{u:0,c:0}},
-  // Q2 cohort from 2026 CS tab
-  q2TCV:{total:229097,won:157202,churned:10441},
+  q2TCV:{total:229097,won:210125,churned:10441},
   q2ARR:{total:151522,won:103301,churned:10441},
   q2Counts:{won:18,churned:3,open:7},
+  forecastExp:{
+    Q1:{u:0,c:0},Q2:{u:9608,c:92551},Q3:{u:21227,c:155104},Q4:{u:0,c:0}
+  },
+};
+
+const FALLBACK_SPOTS={
+  Q2:[
+    {name:'Northeast Wisconsin TC',type:'Cross sell',tcv:80000,stage:'Decision Maker Brought-in',note:'Looking at under 50k per year (restructuring happening)'},
+    {name:'Georgian College — Nursing',type:'Cross sell',tcv:24645,stage:'Decision Maker Brought-in',note:'Quoted 3 year 250 Users'},
+    {name:'UWE — XR Central Pilot',type:'Cross sell',tcv:10000,stage:'Evaluation',note:''},
+    {name:'University of the Incarnate Word',type:'Upsell',tcv:5161,stage:'Contract Sent',note:''},
+  ],
+  Q3:[
+    {name:'MMU SODA',type:'Cross sell',tcv:55000,stage:'Evaluation',note:'Successful pilot with learners. 55k most likely.'},
+    {name:'Manchester Met — Health',type:'Cross sell',tcv:25000,stage:'Evaluation',note:''},
+    {name:'Kaiser Foundation Hospital',type:'Cross sell',tcv:24534,stage:'Engagement',note:''},
+    {name:'UWE Sports',type:'Cross sell',tcv:18900,stage:'Engagement',note:'June catch up planned'},
+    {name:'Bow Valley College',type:'Upsell',tcv:10445,stage:'Evaluation',note:'Looking to upsell from 150 users; call planned beginning of July'},
+  ]
 };
 
 function fmt(n){if(!n||n===0)return'£0';if(n>=1000000)return'£'+(n/1e6).toFixed(2)+'M';if(n>=1000)return'£'+Math.round(n/1000)+'k';return'£'+Math.round(n)}
 function pct(a,b){return b?((a/b)*100).toFixed(1)+'%':'—'}
 function setStatus(s,t){const d=document.getElementById('sdot'),tx=document.getElementById('stxt');d.className='sdot'+(s==='spin'?' spin':s==='err'?' err':'');tx.textContent=t}
 
+function stageClass(s){
+  s=(s||'').toLowerCase();
+  if(s.includes('contract'))return'pill-contract';
+  if(s.includes('decision maker')||s.includes('dm'))return'pill-dm';
+  if(s.includes('evaluation'))return'pill-eval';
+  if(s.includes('churn'))return'pill-risk';
+  return'pill-aware';
+}
+function stageLabel(s){
+  if(!s)return'—';
+  if(s.length>18)return s.substring(0,16)+'…';
+  return s;
+}
+
+function renderSpotlight(elId, items){
+  const el=document.getElementById(elId);
+  if(!items||!items.length){el.innerHTML='<div style="font-size:12px;color:#9ca3af">No open opportunities found.</div>';return;}
+  el.innerHTML=items.map(it=>`
+    <div class="spotlight-item">
+      <div class="si-top">
+        <span class="si-name">${it.name}</span>
+        <span class="si-tcv">${fmt(it.tcv)}</span>
+      </div>
+      <div class="si-meta">
+        <span style="font-size:10px;color:#9ca3af">${it.type}</span>
+        <span class="pill ${stageClass(it.stage)}" style="font-size:10px">${stageLabel(it.stage)}</span>
+      </div>
+      ${it.note?`<div class="si-note">"${it.note}"</div>`:''}
+    </div>`).join('');
+}
+
 function renderRetTable(D){
   const rows=[
     {label:'Company NRR',Q1:D.companyNRR.Q1.toFixed(2)+'%',Q2:D.companyNRR.Q2.toFixed(2)+'%',Q3:'Partial',Q4:'—',note:'Waterfall on full ARR base',Q1c:'#d97706',Q2c:'#16a34a'},
     {label:'Cohort NRR',Q1:D.cohortNRR.Q1.toFixed(2)+'%',Q2:D.cohortNRR.Q2.toFixed(2)+'%',Q3:'0.99%*',Q4:'—',note:'Accounts due for renewal, churns in denominator',Q1c:'#dc2626',Q2c:'#dc2626'},
-    {label:'Revenue retention (TCV)',Q1:pct(D.revRet.Q1.a,D.revRet.Q1.t),Q2:pct(D.revRet.Q2.a,D.revRet.Q2.t),Q3:pct(D.revRet.Q3.a,D.revRet.Q3.t),Q4:'—',note:'TCV retained of TCV due for renewal',Q1c:'#dc2626',Q2c:'#16a34a'},
+    {label:'Revenue retention (TCV)',Q1:pct(D.revRet.Q1.a,D.revRet.Q1.t),Q2:pct(D.revRet.Q2.a,D.revRet.Q2.t),Q3:pct(D.revRet.Q3.a,D.revRet.Q3.t),Q4:'—',note:'TCV retained of TCV due',Q1c:'#dc2626',Q2c:'#16a34a'},
   ];
   document.getElementById('retBody').innerHTML=rows.map(r=>`
     <tr>
@@ -325,198 +355,138 @@ function renderRetTable(D){
 }
 
 function renderProgressBars(D){
-  const tcv=D.q2TCV, arr=D.q2ARR, cnt=D.q2Counts;
+  const tcv=D.q2TCV,arr=D.q2ARR,cnt=D.q2Counts;
   const tcvOpen=Math.max(0,tcv.total-tcv.won-tcv.churned);
   const arrOpen=Math.max(0,arr.total-arr.won-arr.churned);
-  const tcvWonPct=Math.min((tcv.won/tcv.total)*100,100);
-  const tcvChurnPct=Math.min((tcv.churned/tcv.total)*100,100);
-  const tcvOpenPct=Math.min((tcvOpen/tcv.total)*100,100);
-  const arrWonPct=Math.min((arr.won/arr.total)*100,100);
-  const arrChurnPct=Math.min((arr.churned/arr.total)*100,100);
-  const arrOpenPct=Math.min((arrOpen/arr.total)*100,100);
-
   document.getElementById('tcvTotal').textContent=fmt(tcv.total);
   document.getElementById('tcvPcts').textContent=`Won ${fmt(tcv.won)} · Churned ${fmt(tcv.churned)} · Open ${fmt(tcvOpen)}`;
-  document.getElementById('tcvBar').innerHTML=`
-    <div class="prog-won" style="width:${tcvWonPct}%"></div>
-    <div class="prog-churn" style="width:${tcvChurnPct}%"></div>
-    <div class="prog-open" style="width:${tcvOpenPct}%"></div>`;
-
+  const tw=Math.min((tcv.won/tcv.total)*100,100),tc=Math.min((tcv.churned/tcv.total)*100,100),to=Math.min((tcvOpen/tcv.total)*100,100);
+  document.getElementById('tcvBar').innerHTML=`<div style="width:${tw}%;height:100%;background:#16a34a"></div><div style="width:${tc}%;height:100%;background:#dc2626"></div><div style="width:${to}%;height:100%;background:#f97316;opacity:.5"></div>`;
   document.getElementById('arrTotal').textContent=fmt(arr.total);
   document.getElementById('arrPcts').textContent=`Won ${fmt(arr.won)} · Churned ${fmt(arr.churned)} · Open ${fmt(arrOpen)} ARR`;
-  document.getElementById('arrBar').innerHTML=`
-    <div class="prog-won" style="width:${arrWonPct}%"></div>
-    <div class="prog-churn" style="width:${arrChurnPct}%"></div>
-    <div class="prog-open" style="width:${arrOpenPct}%"></div>`;
-
+  const aw=Math.min((arr.won/arr.total)*100,100),ac=Math.min((arr.churned/arr.total)*100,100),ao=Math.min((arrOpen/arr.total)*100,100);
+  document.getElementById('arrBar').innerHTML=`<div style="width:${aw}%;height:100%;background:#16a34a"></div><div style="width:${ac}%;height:100%;background:#dc2626"></div><div style="width:${ao}%;height:100%;background:#f97316;opacity:.5"></div>`;
   document.getElementById('cntWon').textContent=cnt.won;
   document.getElementById('cntChurn').textContent=cnt.churned;
   document.getElementById('cntOpen').textContent=cnt.open;
-
-  // Revenue retention card
   const rr=D.revRet.Q2;
-  const rrPct=(rr.a/rr.t*100).toFixed(1);
-  document.getElementById('q2revret').textContent=rrPct+'%';
+  document.getElementById('q2revret').textContent=pct(rr.a,rr.t);
   document.getElementById('q2revretSub').textContent=fmt(rr.t)+' → '+fmt(rr.a)+' TCV';
 }
 
-function renderExpansion(D){
-  const qs=['Q1','Q2','Q3','Q4'];
-  document.getElementById('expBody').innerHTML=qs.map(q=>{
-    const uc=D.upsellTCV[q],cc=D.crossTCV[q],tc=uc+cc;
-    const uf=D.forecastExp[q].u,cf=D.forecastExp[q].c,tf=uf+cf;
-    const isPartial=q==='Q2'||q==='Q3';
-    return`<tr>
-      <td style="font-weight:500">${q}${isPartial?' <span style="font-size:10px;color:#9ca3af;font-weight:400">partial</span>':''}</td>
-      <td style="color:${uc>0?'#16a34a':'#9ca3af'}">${uc>0?fmt(uc):'—'}</td>
-      <td style="color:${cc>0?'#16a34a':'#9ca3af'}">${cc>0?fmt(cc):'—'}</td>
-      <td style="color:${tc>0?'#16a34a':'#9ca3af'}">${tc>0?fmt(tc):'—'}</td>
-      <td style="color:${uf>0?'#d97706':'#9ca3af'}">${uf>0?fmt(uf):'—'}</td>
-      <td style="color:${cf>0?'#d97706':'#9ca3af'}">${cf>0?fmt(cf):'—'}</td>
-      <td style="color:${tf>0?'#d97706':'#9ca3af'}">${tf>0?fmt(tf):'—'}</td>
-    </tr>`;
-  }).join('');
-}
-
 function renderRevRet(D){
-  const qs=['Q1','Q2','Q3','Q4'];
-  document.getElementById('revRetBody').innerHTML=qs.map(q=>{
-    const r=D.revRet[q];
-    const p=r.t>0?(r.a/r.t*100).toFixed(1)+'%':'—';
+  document.getElementById('revRetBody').innerHTML=['Q1','Q2','Q3','Q4'].map(q=>{
+    const r=D.revRet[q],p=r.t>0?pct(r.a,r.t):'—';
     const col=r.t>0?(r.a/r.t>=0.9?'#16a34a':r.a/r.t>=0.7?'#d97706':'#dc2626'):'#9ca3af';
-    const isPartial=q==='Q3'||q==='Q4';
-    return`<tr>
-      <td style="font-weight:500">${q}${isPartial?' <span style="font-size:10px;color:#9ca3af;font-weight:400">partial</span>':''}</td>
-      <td>${fmt(r.t)}</td>
-      <td>${r.a>0?fmt(r.a):'—'}</td>
-      <td style="color:${col};font-weight:500">${p}</td>
-    </tr>`;
+    const partial=q==='Q3'||q==='Q4';
+    return`<tr><td style="font-weight:500">${q}${partial?' <span style="font-size:10px;color:#9ca3af;font-weight:400">partial</span>':''}</td><td>${fmt(r.t)}</td><td>${r.a>0?fmt(r.a):'—'}</td><td style="color:${col};font-weight:500">${p}</td></tr>`;
   }).join('');
 }
 
 function renderChurnReasons(){
-  const reasons=[
+  const r=[
     {label:'Engagement / adoption failure',count:8,detail:'Licence unused, champion left, deployment failed'},
     {label:'Budget / funding ended',count:6,detail:'Grant expiry, institutional cuts'},
     {label:'Other / project ended',count:3,detail:'One-off project complete, M&A'},
     {label:'Timing — intend to return',count:2,detail:'Pausing, not permanently leaving'},
   ];
-  const max=reasons[0].count;
-  document.getElementById('churnReasons').innerHTML=reasons.map(r=>`
+  const max=r[0].count;
+  document.getElementById('churnReasons').innerHTML=r.map(x=>`
     <div class="cr-row">
-      <div class="cr-top"><span class="cr-lbl">${r.label}</span><span class="cr-cnt">${r.count}</span></div>
-      <div class="cr-track"><div class="cr-bar" style="width:${Math.round(r.count/max*100)}%"></div></div>
-      <div class="cr-detail">${r.detail}</div>
+      <div class="cr-top"><span class="cr-lbl">${x.label}</span><span class="cr-cnt">${x.count}</span></div>
+      <div class="cr-track"><div class="cr-bar" style="width:${Math.round(x.count/max*100)}%"></div></div>
+      <div class="cr-detail">${x.detail}</div>
     </div>`).join('');
 }
 
+function parseExpansionOpps(data){
+  const spots={Q2:[],Q3:[]};
+  try{
+    const eo=data['Expansion Opportunities'];
+    if(!eo) return spots;
+    const skip=['closed won','closed lost'];
+    eo.forEach(row=>{
+      const q=(row[0]||'').toString().toUpperCase().trim();
+      const name=(row[1]||'').toString().trim();
+      const type=(row[3]||'').toString().trim();
+      const tcv=parseFloat(row[5])||0;
+      const stage=(row[6]||'').toString().trim();
+      const note=(row[7]||'').toString().trim();
+      if(!name||tcv<=0) return;
+      if(skip.some(s=>stage.toLowerCase().includes(s))) return;
+      if(q==='Q2'||q==='Q2/3') spots.Q2.push({name,type,tcv,stage,note});
+      if(q==='Q3'||q==='Q2/3') spots.Q3.push({name,type,tcv,stage,note});
+    });
+    spots.Q2.sort((a,b)=>b.tcv-a.tcv); spots.Q2=spots.Q2.slice(0,5);
+    spots.Q3.sort((a,b)=>b.tcv-a.tcv); spots.Q3=spots.Q3.slice(0,5);
+  }catch(e){console.warn('Exp parse:',e)}
+  return spots;
+}
+
+function parseSheet(data){
+  const D=JSON.parse(JSON.stringify(FB));
+  try{
+    const ft=data['Formula Tab'];
+    if(ft){
+      const nQ1=ft.find(r=>r[1]==='Q1'&&typeof r[6]==='number'&&r[6]>0.5);
+      const nQ2=ft.find(r=>r[1]==='Q2'&&typeof r[6]==='number'&&r[6]>0.5);
+      if(nQ1) D.companyNRR.Q1=+(nQ1[6]*100).toFixed(2);
+      if(nQ2) D.companyNRR.Q2=+(nQ2[6]*100).toFixed(2);
+      const cohRows=ft.filter(r=>['Q1','Q2'].includes(r[1])&&typeof r[4]==='number'&&r[4]>0&&r[4]<2);
+      cohRows.forEach(r=>{if(D.cohortNRR[r[1]]!==undefined){D.cohortNRR[r[1]]=+(r[4]*100).toFixed(2);D.cohortARR[r[1]]={s:r[2],e:r[3]};}});
+      ['Q1','Q2','Q3','Q4'].forEach((q,i)=>{
+        const row=ft[28+i];
+        if(row&&typeof row[6]==='number'&&row[6]>1000){D.revRet[q]={t:row[6],a:row[7]||0};}
+        if(row&&typeof row[2]==='number'){D.forecastExp[q]={u:row[2],c:row[3]||0};}
+      });
+    }
+    const cs=data['2026 CS'];
+    if(cs){
+      let tw=0,tc=0,aw=0,ac=0,tt=0,at=0,cw=0,cc=0,co=0;
+      cs.forEach(row=>{
+        if(row[0]!==2) return;
+        const type=(row[13]||'').toString();
+        if(!['Renewal','Win Back'].includes(type)) return;
+        const tcv=parseFloat(row[10])||0,arr=parseFloat(row[11])||0;
+        const status=(row[18]||'').toString().toLowerCase();
+        tt+=tcv;at+=arr;
+        if(status.includes('closed won')||status==='won'){tw+=tcv;aw+=arr;cw++;}
+        else if(status.includes('churn')){tc+=tcv;ac+=arr;cc++;}
+        else co++;
+      });
+      if(tt>0){D.q2TCV={total:tt,won:tw,churned:tc};D.q2ARR={total:at,won:aw,churned:ac};D.q2Counts={won:cw,churned:cc,open:co};}
+    }
+  }catch(e){console.warn('Parse:',e)}
+  return D;
+}
+
 function updateDaysLeft(){
-  const days=Math.ceil((new Date('2026-06-30')-new Date())/(1000*60*60*24));
+  const days=Math.ceil((new Date('2026-06-30')-new Date())/(864e5));
   const el=document.getElementById('daysLeft');
   if(el) el.textContent=days>0?days+' days remaining in Q2':'Q2 closed';
 }
 
-function parseSheet(data){
-  const D=JSON.parse(JSON.stringify(FALLBACK));
-  try{
-    const ft=data['Formula Tab'];
-    if(!ft) return D;
-    // Company NRR rows (row index 4=Q1, 5=Q2)
-    const nrrQ1=ft.find(r=>r[1]==='Q1'&&typeof r[6]==='number'&&r[6]>0.5);
-    const nrrQ2=ft.find(r=>r[1]==='Q2'&&typeof r[6]==='number'&&r[6]>0.5);
-    if(nrrQ1) D.companyNRR.Q1=+(nrrQ1[6]*100).toFixed(2);
-    if(nrrQ2) D.companyNRR.Q2=+(nrrQ2[6]*100).toFixed(2);
-    // Cohort NRR
-    const cohRows=ft.filter(r=>['Q1','Q2','Q3','Q4'].includes(r[1])&&typeof r[4]==='number'&&r[4]>0&&r[4]<2);
-    cohRows.forEach(r=>{
-      const q=r[1];
-      if(D.cohortNRR[q]!==undefined){
-        D.cohortNRR[q]=+(r[4]*100).toFixed(2);
-        D.cohortARR[q]={s:r[2],e:r[3]};
-      }
-    });
-    // Revenue retention — look for rows with Starting/Ending pattern near col G/H
-    const rrRows=ft.filter(r=>['Q1','Q2','Q3','Q4'].includes(r[1])&&typeof r[7]==='number'&&r[7]>1000&&typeof r[8]==='number');
-    rrRows.forEach(r=>{
-      const q=r[1];
-      if(D.revRet[q]!==undefined){D.revRet[q]={t:r[7],a:r[8]};}
-    });
-    // Churn/Upsell/Cross TCV — look for rows with Q labels and TCV values
-    const churnRows=ft.filter(r=>['Q1','Q2','Q3','Q4'].includes(r[1])&&typeof r[2]==='number'&&r[2]>0&&typeof r[3]==='number');
-    // This is fragile - use positional approach
-    // Row 18 (index 18) = Churn header, rows 19-22 = Q1-Q4
-    if(ft[18]&&ft[19]&&ft[20]){
-      ['Q1','Q2','Q3','Q4'].forEach((q,i)=>{
-        const row=ft[18+1+i];
-        if(row){
-          if(typeof row[2]==='number') D.churnTCV[q]=row[2];
-          if(typeof row[3]==='number') D.churnCnt[q]=row[3];
-          if(typeof row[5]==='number') D.upsellTCV[q]=row[5];
-          if(typeof row[6]==='number') D.upsellCnt[q]=row[6];
-          if(typeof row[9]==='number') D.crossTCV[q]=row[9];
-          if(typeof row[10]==='number') D.crossCnt[q]=row[10];
-        }
-      });
-    }
-    // Forecasted Expansions rows 28-31 (0-indexed 27-30), cols B=1,C=2,D=3
-    ['Q1','Q2','Q3','Q4'].forEach((q,i)=>{
-      const row=ft[28+i];
-      if(row&&typeof row[2]==='number') D.forecastExp[q]={u:row[2],c:row[3]||0};
-    });
-    // Revenue retention new table rows 28-31 cols F=5,G=6,H=7
-    ['Q1','Q2','Q3','Q4'].forEach((q,i)=>{
-      const row=ft[28+i];
-      if(row&&typeof row[6]==='number'&&row[6]>1000){
-        D.revRet[q]={t:row[6],a:row[7]||0};
-      }
-    });
-  }catch(e){console.warn('Parse error:',e)}
-
-  // Compute Q2 progress from 2026 CS if available
-  try{
-    const cs=data['2026 CS'];
-    if(cs){
-      let tcvTotal=0,tcvWon=0,tcvChurn=0,arrTotal=0,arrWon=0,arrChurn=0;
-      let cntWon=0,cntChurn=0,cntOpen=0;
-      cs.forEach(row=>{
-        if(row[0]!==2) return;
-        const type=row[13]||'';
-        if(!['Renewal','Win Back'].includes(type)) return;
-        const tcv=parseFloat(row[10])||0;
-        const arr=parseFloat(row[11])||0;
-        const status=(row[18]||'').toString().toLowerCase();
-        tcvTotal+=tcv; arrTotal+=arr;
-        if(status.includes('closed won')||status==='won'){tcvWon+=tcv;arrWon+=arr;cntWon++;}
-        else if(status.includes('churn')){tcvChurn+=tcv;arrChurn+=arr;cntChurn++;}
-        else{cntOpen++;}
-      });
-      if(tcvTotal>0){
-        D.q2TCV={total:tcvTotal,won:tcvWon,churned:tcvChurn};
-        D.q2ARR={total:arrTotal,won:arrWon,churned:arrChurn};
-        D.q2Counts={won:cntWon,churned:cntChurn,open:cntOpen};
-      }
-    }
-  }catch(e){console.warn('CS parse error:',e)}
-  return D;
-}
-
 async function init(){
   setStatus('spin','Fetching live data...');
-  let D=FALLBACK;
+  let D=FB, spots=FALLBACK_SPOTS;
   try{
     const r=await fetch(APPS_URL);
     if(!r.ok) throw new Error();
     const data=await r.json();
     D=parseSheet(data);
+    const live=parseExpansionOpps(data);
+    if(live.Q2.length) spots.Q2=live.Q2;
+    if(live.Q3.length) spots.Q3=live.Q3;
     setStatus('ok','Live — '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));
   }catch(e){
     setStatus('err','Sheet unreachable — showing last data');
   }
   renderRetTable(D);
   renderProgressBars(D);
-  renderExpansion(D);
   renderRevRet(D);
   renderChurnReasons();
+  renderSpotlight('q2Spotlight',spots.Q2);
+  renderSpotlight('q3Spotlight',spots.Q3);
   updateDaysLeft();
 }
 
