@@ -32,7 +32,7 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 .ret-tbl tr:last-child td{border-bottom:none}
 .ret-tbl td:not(:first-child){text-align:right;font-weight:500}
 .col-note{font-size:11px;color:#9ca3af;font-weight:400!important;text-align:left!important;padding-left:12px!important}
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
 .mc{background:#fff;border:1px solid #e2e4e8;border-radius:8px;padding:12px 14px}
 .mc.bg{background:#f8f9fb}
 .mc-l{font-size:10px;color:#9ca3af;margin-bottom:3px}
@@ -147,7 +147,7 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
     </thead>
     <tbody id="retBody"></tbody>
   </table>
-  <div class="note" style="margin-top:10px">* Q3/Q4 near-zero — pipeline open, figures close upward as renewals complete. Company NRR diverges from cohort NRR because expansion on the full ARR base partially offsets weak individual renewal rates.</div>
+  <div class="note" style="margin-top:10px">* Q3 is live, Q4 not yet started — figures close upward as renewals complete through the quarter. Company NRR diverges from cohort NRR because expansion on the full ARR base partially offsets weak individual renewal rates.</div>
 </div>
 
 <!-- Q1 sealed -->
@@ -157,54 +157,73 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
     <div class="q-title">Q1 2026 <span class="sealed">Closed · Jan 1 – Mar 31</span></div>
   </div>
   <div class="metrics-grid">
-    <div class="mc"><div class="mc-l">Company NRR</div><div class="mc-v warn">97.65%</div><div class="mc-s">Slightly below 100%</div></div>
-    <div class="mc"><div class="mc-l">Cohort NRR</div><div class="mc-v dn">70.81%</div><div class="mc-s">£248k → £176k ARR</div></div>
-    <div class="mc"><div class="mc-l">Revenue retention</div><div class="mc-v dn">64.2%</div><div class="mc-s">£361k → £232k TCV</div></div>
-    <div class="mc"><div class="mc-l">Churn (ARR)</div><div class="mc-v dn">£81,144</div><div class="mc-s">10 accounts</div></div>
+    <div class="mc"><div class="mc-l">Company NRR</div><div class="mc-v" id="q1cnrr">—</div><div class="mc-s">Waterfall on full ARR base</div></div>
+    <div class="mc"><div class="mc-l">Cohort NRR</div><div class="mc-v" id="q1cohnrr">—</div><div class="mc-s" id="q1cohnrrSub">—</div></div>
+    <div class="mc"><div class="mc-l">Revenue retention</div><div class="mc-v" id="q1revret">—</div><div class="mc-s" id="q1revretSub">—</div></div>
+    <div class="mc"><div class="mc-l">Churn (TCV)</div><div class="mc-v dn" id="q1churn">—</div><div class="mc-s" id="q1churnSub">—</div></div>
+    <div class="mc"><div class="mc-l">Win Backs (TCV)</div><div class="mc-v" id="q1winback">—</div></div>
+    <div class="mc"><div class="mc-l">Ongoing (TCV)</div><div class="mc-v" id="q1ongoing">—</div></div>
   </div>
   <div class="wf-mini">
-    <div><div class="wf-l">Opening ARR</div><div class="wf-v">£2,270,921</div></div>
-    <div><div class="wf-l" style="color:#dc2626">Churn + contraction</div><div class="wf-v" style="color:#dc2626">−£104,272</div></div>
-    <div><div class="wf-l" style="color:#16a34a">Expansion</div><div class="wf-v" style="color:#16a34a">+£50,946</div></div>
-    <div><div class="wf-l">Closing ARR</div><div class="wf-v">£2,217,595</div></div>
+    <div><div class="wf-l">Opening ARR</div><div class="wf-v" id="q1wfOpen">—</div></div>
+    <div><div class="wf-l" style="color:#dc2626">Churn + contraction</div><div class="wf-v" style="color:#dc2626" id="q1wfOut">—</div></div>
+    <div><div class="wf-l" style="color:#16a34a">Expansion</div><div class="wf-v" style="color:#16a34a" id="q1wfExp">—</div></div>
+    <div><div class="wf-l">Closing ARR</div><div class="wf-v" id="q1wfClose">—</div></div>
   </div>
-  <div class="q-note">Cambridgeshire NHS (£29k) and Mondelez R&D (£19k) were 60% of Q1 churn ARR. 6 of 10 churns driven by engagement failure.</div>
+  <div class="q-note">Cambridgeshire NHS (£29k) and Mondelez R&D (£19k) remain the two largest Q1 churn accounts by ARR. Churn count above is live — if it moves, that reflects the sheet being corrected after quarter close, not a new churn. Full account-level detail: 2026 CS tab.</div>
 </div>
 
-<!-- Q2 live -->
-<div class="slbl">Q2 2026 — in progress</div>
+<!-- Q2 sealed -->
+<div class="slbl">Q2 2026 — sealed</div>
+<div class="q1-card">
+  <div class="q-hdr">
+    <div class="q-title">Q2 2026 <span class="sealed">Closed · Apr 1 – Jun 30</span></div>
+  </div>
+  <div class="metrics-grid">
+    <div class="mc"><div class="mc-l">Company NRR</div><div class="mc-v" id="q2cnrr">—</div><div class="mc-s">Waterfall on full ARR base</div></div>
+    <div class="mc"><div class="mc-l">Cohort NRR</div><div class="mc-v" id="q2cohnrr">—</div><div class="mc-s" id="q2cohnrrSub">—</div></div>
+    <div class="mc"><div class="mc-l">Revenue retention</div><div class="mc-v" id="q2revret">—</div><div class="mc-s" id="q2revretSub">—</div></div>
+    <div class="mc"><div class="mc-l">Churn (TCV)</div><div class="mc-v dn" id="q2churn">—</div><div class="mc-s" id="q2churnSub">—</div></div>
+    <div class="mc"><div class="mc-l">Win Backs (TCV)</div><div class="mc-v" id="q2winback">—</div></div>
+    <div class="mc"><div class="mc-l">Ongoing (TCV)</div><div class="mc-v" id="q2ongoing">—</div></div>
+  </div>
+  <div class="wf-mini">
+    <div><div class="wf-l">Opening ARR</div><div class="wf-v" id="q2wfOpen">—</div></div>
+    <div><div class="wf-l" style="color:#dc2626">Churn + contraction</div><div class="wf-v" style="color:#dc2626" id="q2wfOut">—</div></div>
+    <div><div class="wf-l" style="color:#16a34a">Expansion</div><div class="wf-v" style="color:#16a34a" id="q2wfExp">—</div></div>
+    <div><div class="wf-l">Closing ARR</div><div class="wf-v" id="q2wfClose">—</div></div>
+  </div>
+  <div class="q-note">Cohort NRR was the strongest quarter of the year so far. Revenue retention (TCV) lags Cohort NRR because TCV-due includes multi-year contract value not yet reflected as ARR churn/renewal. Account-level detail: 2026 CS tab.</div>
+</div>
+
+<!-- Q3 live -->
+<div class="slbl">Q3 2026 — in progress</div>
 <div class="q2-card">
   <div class="q-hdr">
-    <div class="q-title">Q2 2026 <span class="live-badge"><span class="live-dot"></span>In progress</span></div>
+    <div class="q-title">Q3 2026 <span class="live-badge"><span class="live-dot"></span>In progress</span></div>
     <div style="font-size:12px;color:#6b7280" id="daysLeft"></div>
   </div>
   <div class="metrics-grid">
-    <div class="mc bg"><div class="mc-l">Company NRR</div><div class="mc-v up" id="q2cnrr">106.28%</div><div class="mc-s">Snapshot to date</div></div>
-    <div class="mc bg"><div class="mc-l">Cohort NRR</div><div class="mc-v warn" id="q2cohnrr">68.18%</div><div class="mc-s" id="q2cohnrrSub">£152k → £103k ARR</div></div>
-    <div class="mc bg"><div class="mc-l">Revenue retention</div><div class="mc-v up" id="q2revret">91.7%</div><div class="mc-s" id="q2revretSub">£229k → £210k TCV</div></div>
-    <div class="mc bg"><div class="mc-l">Open ARR</div><div class="mc-v warn">£40,912</div><div class="mc-s">7 accounts remaining</div></div>
+    <div class="mc bg"><div class="mc-l">Company NRR</div><div class="mc-v" id="q3cnrr">—</div><div class="mc-s">Snapshot to date</div></div>
+    <div class="mc bg"><div class="mc-l">Cohort NRR</div><div class="mc-v warn" id="q3cohnrr">—</div><div class="mc-s" id="q3cohnrrSub">Loading…</div></div>
+    <div class="mc bg"><div class="mc-l">Revenue retention</div><div class="mc-v" id="q3revret">—</div><div class="mc-s" id="q3revretSub">Loading…</div></div>
+    <div class="mc bg"><div class="mc-l">Open ARR</div><div class="mc-v warn" id="q3openarr">—</div><div class="mc-s" id="q3openarrSub">Live</div></div>
+    <div class="mc bg"><div class="mc-l">Win Backs (TCV)</div><div class="mc-v" id="q3winback">—</div></div>
+    <div class="mc bg"><div class="mc-l">Ongoing (TCV)</div><div class="mc-v" id="q3ongoing">—</div></div>
   </div>
   <div class="prog-row">
     <div class="prog-lbl-row">
-      <span>TCV to renew: <span id="tcvTotal">£229,097</span></span>
-      <span id="tcvPcts" style="color:#6b7280">Won £210,125 · Churned £10,441 · Open £8,531</span>
+      <span>TCV to renew: <span id="tcvTotal">—</span></span>
+      <span id="tcvPcts" style="color:#6b7280">Loading…</span>
     </div>
-    <div class="prog-track" id="tcvBar">
-      <div style="width:92%;height:100%;background:#16a34a"></div>
-      <div style="width:5%;height:100%;background:#dc2626"></div>
-      <div style="width:3%;height:100%;background:#f97316;opacity:0.5"></div>
-    </div>
+    <div class="prog-track" id="tcvBar"></div>
   </div>
   <div class="prog-row">
     <div class="prog-lbl-row">
-      <span>ARR to renew: <span id="arrTotal">£151,522</span></span>
-      <span id="arrPcts" style="color:#6b7280">Won £103,301 · Churned £10,441 · Open £37,780 ARR</span>
+      <span>ARR to renew: <span id="arrTotal">—</span></span>
+      <span id="arrPcts" style="color:#6b7280">Loading…</span>
     </div>
-    <div class="prog-track" id="arrBar">
-      <div style="width:68%;height:100%;background:#16a34a"></div>
-      <div style="width:7%;height:100%;background:#dc2626"></div>
-      <div style="width:25%;height:100%;background:#f97316;opacity:0.5"></div>
-    </div>
+    <div class="prog-track" id="arrBar"></div>
   </div>
   <div class="prog-legend">
     <span>■ <span style="color:#16a34a">Renewed</span></span>
@@ -213,22 +232,11 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
   </div>
   <div class="counts-row" id="countRow">
     <div class="cnt-item"><div class="cnt-dot" style="background:#16a34a"></div><span id="cntWon">—</span> renewed</div>
-    <div class="cnt-item"><div class="cnt-dot" style="background:#dc2626"></div><span id="cntChurn">3</span> churned</div>
+    <div class="cnt-item"><div class="cnt-dot" style="background:#dc2626"></div><span id="cntChurn">—</span> churned</div>
     <div class="cnt-item"><div class="cnt-dot" style="background:#f97316"></div><span id="cntOpen">—</span> still open</div>
   </div>
-  <div class="risk-strip">⚠ Chiltern Railway (£5,500 ARR) — confirmed churn intent · 0% · not yet closed in system</div>
-  <div class="card-title">Top 5 open renewals — Q2</div>
-  <table class="prob-tbl">
-    <thead><tr><th style="min-width:180px">Account</th><th>ARR</th><th>Probability</th><th style="text-align:right">Stage</th></tr></thead>
-    <tbody>
-      <tr><td>University of Birmingham</td><td>£10,000</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:80%;background:#16a34a"></div></div>80%</td><td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td></tr>
-      <tr><td>Heriot-Watt — Resilience</td><td>£10,000</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:80%;background:#16a34a"></div></div>80%</td><td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td></tr>
-      <tr><td>Dudley College</td><td>£5,950</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:70%;background:#d97706"></div></div>70%</td><td style="text-align:right"><span class="pill pill-eval">Evaluation</span></td></tr>
-      <tr><td>RNN Group</td><td>£4,800</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:70%;background:#d97706"></div></div>70%</td><td style="text-align:right"><span class="pill pill-aware">Awareness</span></td></tr>
-      <tr><td>Coleg Gwent (x2)</td><td>£3,700</td><td><div class="prob-bar-wrap"><div class="prob-bar" style="width:50%;background:#dc2626"></div></div>50%</td><td style="text-align:right"><span class="pill pill-risk">Churn intent</span></td></tr>
-    </tbody>
-  </table>
-  <div class="note" style="margin-top:10px">£34,450 open ARR. Birmingham + Heriot-Watt (£20k, 80%) are the Q2 priority.</div>
+  <div class="card-title">Top 5 open renewals — Q3</div>
+  <div class="note">Awaiting a confirmed deal-name column / account list for this quarter — not auto-populated to avoid showing incorrect accounts. Send the list, or confirm the "2026 CS" tab's layout, and this can be wired live.</div>
 </div>
 
 <!-- Expansion spotlights -->
@@ -236,18 +244,18 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 <div class="spotlight-grid">
   <div class="spotlight-card">
     <div class="spotlight-hdr">
-      <div class="spotlight-title">Q2 — current quarter</div>
+      <div class="spotlight-title">Q3 — current quarter</div>
       <span class="spotlight-badge sb-current">Open pipeline only</span>
     </div>
-    <div id="q2Spotlight"><div style="font-size:12px;color:#9ca3af">Loading...</div></div>
+    <div id="q3Spotlight"><div style="font-size:12px;color:#9ca3af">Loading...</div></div>
     <div class="note" style="margin-top:10px">Excludes Closed Won and Closed Lost. Top 5 by TCV.</div>
   </div>
   <div class="spotlight-card">
     <div class="spotlight-hdr">
-      <div class="spotlight-title">Q3 — next quarter</div>
+      <div class="spotlight-title">Q4 — next quarter</div>
       <span class="spotlight-badge sb-next">Building pipeline</span>
     </div>
-    <div id="q3Spotlight"><div style="font-size:12px;color:#9ca3af">Loading...</div></div>
+    <div id="q4Spotlight"><div style="font-size:12px;color:#9ca3af">Loading...</div></div>
     <div class="note" style="margin-top:10px">Excludes Closed Won and Closed Lost. Top 5 by TCV.</div>
   </div>
 </div>
@@ -272,39 +280,54 @@ body{font-family:'DM Sans',sans-serif;font-size:14px;background:#f4f5f7;color:#1
 </div>
 <script>
 const APPS_URL='https://script.google.com/macros/s/AKfycbyyf0S8yY9aTqcvwMvmPIHL0nuwH-cy68ciwmAa9jwfVufcoA6gKJgQswjVtMy9ESHj/exec';
+const LIVE_Q='Q3'; // <-- the one quarter treated as "in progress" on this dashboard. Update this each quarter.
+const NEXT_Q='Q4';
+const QUARTER_END='2026-09-30'; // end date of LIVE_Q, used for the countdown
 
+// Fallback values only used if the live sheet fetch fails outright.
+// Verified against the Formula Tab (Jul 2026, post Win Backs/Ongoing additions).
 const FB={
-  companyNRR:{Q1:97.65,Q2:106.28},
-  cohortNRR:{Q1:70.81,Q2:68.18},
-  cohortARR:{Q1:{s:248693,e:176102},Q2:{s:151522,e:103301}},
-  revRet:{Q1:{t:361419,a:231870},Q2:{t:229097,a:210125},Q3:{t:680189,a:17220},Q4:{t:334041,a:0}},
-  q2TCV:{total:229097,won:210125,churned:10441},
-  q2ARR:{total:151522,won:103301,churned:10441},
-  q2Counts:{won:18,churned:3,open:7},
-  forecastExp:{
-    Q1:{u:0,c:0},Q2:{u:9608,c:92551},Q3:{u:21227,c:155104},Q4:{u:0,c:0}
+  companyNRR:{Q1:97.44,Q2:108.26,Q3:110.24},
+  companyWaterfall:{
+    Q1:{startARR:2270921,exp:50946,churn:86029,contr:23128},
+    Q2:{startARR:2422820,exp:62635,churn:15941,contr:10936},
+    Q3:{startARR:2512510,exp:3029,churn:12052,contr:0},
   },
+  cohortNRR:{Q1:70.81,Q2:94.61,Q3:4.94},
+  cohortARR:{Q1:{s:248693,e:176102},Q2:{s:159460,e:150862},Q3:{s:532307,e:26280}},
+  revRet:{Q1:{t:361419,a:231870},Q2:{t:254324,a:184189},Q3:{t:680189,a:42482},Q4:{t:334041,a:0}},
+  churnTCV:{Q1:{amt:107215,count:11},Q2:{amt:15941,count:4},Q3:{amt:27043,count:2},Q4:{amt:0,count:0}},
+  winBackTCV:{Q1:{amt:2096,count:0},Q2:{amt:15000,count:0},Q3:{amt:0,count:0},Q4:{amt:0,count:0}},
+  ongoingTCV:{Q1:{amt:4375,count:0},Q2:{amt:37049,count:0},Q3:{amt:0,count:0},Q4:{amt:0,count:0}},
+  forecastExp:{Q1:{u:0,c:0},Q2:{u:4447,c:2551},Q3:{u:20131,c:269749},Q4:{u:0,c:0}},
 };
 
 const FALLBACK_SPOTS={
-  Q2:[
-    {name:'Northeast Wisconsin TC',type:'Cross sell',tcv:80000,stage:'Decision Maker Brought-in',note:'Looking at under 50k per year (restructuring happening)'},
-    {name:'Georgian College — Nursing',type:'Cross sell',tcv:24645,stage:'Decision Maker Brought-in',note:'Quoted 3 year 250 Users'},
-    {name:'UWE — XR Central Pilot',type:'Cross sell',tcv:10000,stage:'Evaluation',note:''},
-    {name:'University of the Incarnate Word',type:'Upsell',tcv:5161,stage:'Contract Sent',note:''},
-  ],
-  Q3:[
-    {name:'MMU SODA',type:'Cross sell',tcv:55000,stage:'Evaluation',note:'Successful pilot with learners. 55k most likely.'},
-    {name:'Manchester Met — Health',type:'Cross sell',tcv:25000,stage:'Evaluation',note:''},
-    {name:'Kaiser Foundation Hospital',type:'Cross sell',tcv:24534,stage:'Engagement',note:''},
-    {name:'UWE Sports',type:'Cross sell',tcv:18900,stage:'Engagement',note:'June catch up planned'},
-    {name:'Bow Valley College',type:'Upsell',tcv:10445,stage:'Evaluation',note:'Looking to upsell from 150 users; call planned beginning of July'},
-  ]
+  Q3:[],
+  Q4:[]
 };
 
 function fmt(n){if(!n||n===0)return'£0';if(n>=1000000)return'£'+(n/1e6).toFixed(2)+'M';if(n>=1000)return'£'+Math.round(n/1000)+'k';return'£'+Math.round(n)}
 function pct(a,b){return b?((a/b)*100).toFixed(1)+'%':'—'}
 function setStatus(s,t){const d=document.getElementById('sdot'),tx=document.getElementById('stxt');d.className='sdot'+(s==='spin'?' spin':s==='err'?' err':'');tx.textContent=t}
+
+// Tolerant number parser: handles raw numbers AND formatted strings like "£150,861.79" or "94.61%"
+function toNum(v){
+  if(v===null||v===undefined||v==='') return NaN;
+  if(typeof v==='number') return v;
+  let s=String(v).trim();
+  if(!s) return NaN;
+  const isPct=s.includes('%');
+  s=s.replace(/[£$€,%\s]/g,'');
+  const n=parseFloat(s);
+  if(isNaN(n)) return NaN;
+  return isPct?n/100:n;
+}
+
+// Finds a row by header label instead of a hardcoded index — survives rows being inserted/reordered
+function findRowIdx(rows,label){
+  return rows.findIndex(r=>Array.isArray(r)&&r.some(c=>typeof c==='string'&&c.trim().toLowerCase()===label.toLowerCase()));
+}
 
 function stageClass(s){
   s=(s||'').toLowerCase();
@@ -338,10 +361,11 @@ function renderSpotlight(elId, items){
 }
 
 function renderRetTable(D){
+  const cnrrQ3=D.companyNRR.Q3!=null?D.companyNRR.Q3.toFixed(2)+'%':'Pending';
   const rows=[
-    {label:'Company NRR',Q1:D.companyNRR.Q1.toFixed(2)+'%',Q2:D.companyNRR.Q2.toFixed(2)+'%',Q3:'Partial',Q4:'—',note:'Waterfall on full ARR base',Q1c:'#d97706',Q2c:'#16a34a'},
-    {label:'Cohort NRR',Q1:D.cohortNRR.Q1.toFixed(2)+'%',Q2:D.cohortNRR.Q2.toFixed(2)+'%',Q3:'0.99%*',Q4:'—',note:'Accounts due for renewal, churns in denominator',Q1c:'#dc2626',Q2c:'#dc2626'},
-    {label:'Revenue retention (TCV)',Q1:pct(D.revRet.Q1.a,D.revRet.Q1.t),Q2:pct(D.revRet.Q2.a,D.revRet.Q2.t),Q3:pct(D.revRet.Q3.a,D.revRet.Q3.t),Q4:'—',note:'TCV retained of TCV due',Q1c:'#dc2626',Q2c:'#16a34a'},
+    {label:'Company NRR',Q1:D.companyNRR.Q1.toFixed(2)+'%',Q2:D.companyNRR.Q2.toFixed(2)+'%',Q3:cnrrQ3,Q4:'—',note:'Waterfall on full ARR base',Q1c:'#d97706',Q2c:'#16a34a'},
+    {label:'Cohort NRR',Q1:D.cohortNRR.Q1.toFixed(2)+'%',Q2:D.cohortNRR.Q2.toFixed(2)+'%',Q3:D.cohortNRR.Q3.toFixed(2)+'%*',Q4:'—',note:'Accounts due for renewal, churns in denominator',Q1c:'#dc2626',Q2c:'#16a34a'},
+    {label:'Revenue retention (TCV)',Q1:pct(D.revRet.Q1.a,D.revRet.Q1.t),Q2:pct(D.revRet.Q2.a,D.revRet.Q2.t),Q3:pct(D.revRet.Q3.a,D.revRet.Q3.t),Q4:'—',note:'TCV retained of TCV due',Q1c:'#dc2626',Q2c:'#d97706'},
   ];
   document.getElementById('retBody').innerHTML=rows.map(r=>`
     <tr>
@@ -354,24 +378,76 @@ function renderRetTable(D){
     </tr>`).join('');
 }
 
+function renderSealedCard(qKey,D){
+  const idPrefix=qKey.toLowerCase();
+  const nrr=D.companyNRR[qKey], coh=D.cohortNRR[qKey], cohARR=D.cohortARR[qKey]||{s:0,e:0};
+  const rr=D.revRet[qKey]||{t:0,a:0}, churn=D.churnTCV[qKey]||{amt:0,count:0};
+  const wb=D.winBackTCV[qKey]||{amt:0,count:0}, og=D.ongoingTCV[qKey]||{amt:0,count:0};
+  const wf=D.companyWaterfall[qKey]||{startARR:0,exp:0,churn:0,contr:0};
+
+  const set=(id,val)=>{const el=document.getElementById(id); if(el) el.textContent=val;};
+  const setCls=(id,cls)=>{const el=document.getElementById(id); if(el) el.className='mc-v '+cls;};
+
+  set(idPrefix+'cnrr', nrr!=null?nrr.toFixed(2)+'%':'—');
+  setCls(idPrefix+'cnrr', nrr>=100?'up':'warn');
+  set(idPrefix+'cohnrr', coh!=null?coh.toFixed(2)+'%':'—');
+  setCls(idPrefix+'cohnrr', coh>=90?'up':coh>=70?'warn':'dn');
+  set(idPrefix+'cohnrrSub', fmt(cohARR.s)+' → '+fmt(cohARR.e)+' ARR');
+  set(idPrefix+'revret', pct(rr.a,rr.t));
+  setCls(idPrefix+'revret', (rr.a/rr.t)>=0.9?'up':(rr.a/rr.t)>=0.7?'warn':'dn');
+  set(idPrefix+'revretSub', fmt(rr.t)+' → '+fmt(rr.a)+' TCV');
+  set(idPrefix+'churn', fmt(churn.amt));
+  set(idPrefix+'churnSub', churn.count+' account'+(churn.count===1?'':'s'));
+  set(idPrefix+'winback', fmt(wb.amt));
+  set(idPrefix+'ongoing', fmt(og.amt));
+
+  const closeARR=wf.startARR+wf.exp-wf.churn-wf.contr;
+  set(idPrefix+'wfOpen', fmt(wf.startARR));
+  set(idPrefix+'wfOut', '−'+fmt(wf.churn+wf.contr));
+  set(idPrefix+'wfExp', '+'+fmt(wf.exp));
+  set(idPrefix+'wfClose', fmt(closeARR));
+}
+
 function renderProgressBars(D){
-  const tcv=D.q2TCV,arr=D.q2ARR,cnt=D.q2Counts;
-  const tcvOpen=Math.max(0,tcv.total-tcv.won-tcv.churned);
-  const arrOpen=Math.max(0,arr.total-arr.won-arr.churned);
-  document.getElementById('tcvTotal').textContent=fmt(tcv.total);
-  document.getElementById('tcvPcts').textContent=`Won ${fmt(tcv.won)} · Churned ${fmt(tcv.churned)} · Open ${fmt(tcvOpen)}`;
-  const tw=Math.min((tcv.won/tcv.total)*100,100),tc=Math.min((tcv.churned/tcv.total)*100,100),to=Math.min((tcvOpen/tcv.total)*100,100);
-  document.getElementById('tcvBar').innerHTML=`<div style="width:${tw}%;height:100%;background:#16a34a"></div><div style="width:${tc}%;height:100%;background:#dc2626"></div><div style="width:${to}%;height:100%;background:#f97316;opacity:.5"></div>`;
-  document.getElementById('arrTotal').textContent=fmt(arr.total);
-  document.getElementById('arrPcts').textContent=`Won ${fmt(arr.won)} · Churned ${fmt(arr.churned)} · Open ${fmt(arrOpen)} ARR`;
-  const aw=Math.min((arr.won/arr.total)*100,100),ac=Math.min((arr.churned/arr.total)*100,100),ao=Math.min((arrOpen/arr.total)*100,100);
-  document.getElementById('arrBar').innerHTML=`<div style="width:${aw}%;height:100%;background:#16a34a"></div><div style="width:${ac}%;height:100%;background:#dc2626"></div><div style="width:${ao}%;height:100%;background:#f97316;opacity:.5"></div>`;
-  document.getElementById('cntWon').textContent=cnt.won;
-  document.getElementById('cntChurn').textContent=cnt.churned;
-  document.getElementById('cntOpen').textContent=cnt.open;
-  const rr=D.revRet.Q2;
-  document.getElementById('q2revret').textContent=pct(rr.a,rr.t);
-  document.getElementById('q2revretSub').textContent=fmt(rr.t)+' → '+fmt(rr.a)+' TCV';
+  const rr=D.revRet[LIVE_Q]||{t:0,a:0};
+  const churn=D.churnTCV[LIVE_Q]||{amt:0,count:0};
+  const wb=D.winBackTCV[LIVE_Q]||{amt:0,count:0};
+  const og=D.ongoingTCV[LIVE_Q]||{amt:0,count:0};
+  const coh=D.cohortARR[LIVE_Q]||{s:0,e:0};
+
+  // TCV bar: total due (target), won (actual), churned, remainder open
+  const tcvTotal=rr.t||0, tcvWon=rr.a||0, tcvChurned=churn.amt||0;
+  const tcvOpen=Math.max(0,tcvTotal-tcvWon-tcvChurned);
+  document.getElementById('tcvTotal').textContent=fmt(tcvTotal);
+  document.getElementById('tcvPcts').textContent=`Won ${fmt(tcvWon)} · Churned ${fmt(tcvChurned)} · Open ${fmt(tcvOpen)}`;
+  if(tcvTotal>0){
+    const tw=Math.min((tcvWon/tcvTotal)*100,100),tc=Math.min((tcvChurned/tcvTotal)*100,100),to=Math.min((tcvOpen/tcvTotal)*100,100);
+    document.getElementById('tcvBar').innerHTML=`<div style="width:${tw}%;height:100%;background:#16a34a"></div><div style="width:${tc}%;height:100%;background:#dc2626"></div><div style="width:${to}%;height:100%;background:#f97316;opacity:.5"></div>`;
+  }
+
+  // ARR bar: cohort starting (total due) vs ending (won so far), churned as proxy from churn TCV
+  const arrTotal=coh.s||0, arrWon=coh.e||0, arrChurned=Math.min(churn.amt||0,arrTotal);
+  const arrOpen=Math.max(0,arrTotal-arrWon-arrChurned);
+  document.getElementById('arrTotal').textContent=fmt(arrTotal);
+  document.getElementById('arrPcts').textContent=`Won ${fmt(arrWon)} · Churned ${fmt(arrChurned)} · Open ${fmt(arrOpen)} ARR`;
+  if(arrTotal>0){
+    const aw=Math.min((arrWon/arrTotal)*100,100),ac=Math.min((arrChurned/arrTotal)*100,100),ao=Math.min((arrOpen/arrTotal)*100,100);
+    document.getElementById('arrBar').innerHTML=`<div style="width:${aw}%;height:100%;background:#16a34a"></div><div style="width:${ac}%;height:100%;background:#dc2626"></div><div style="width:${ao}%;height:100%;background:#f97316;opacity:.5"></div>`;
+  }
+
+  document.getElementById('cntChurn').textContent=churn.count!=null?churn.count:'—';
+  // Won/open counts aren't in the Formula Tab — need the 2026 CS tab wired with a confirmed column map (see note)
+  document.getElementById('cntWon').textContent='—';
+  document.getElementById('cntOpen').textContent='—';
+  document.getElementById('q3openarr').textContent=fmt(arrOpen);
+
+  document.getElementById('q3cnrr').textContent=D.companyNRR.Q3!=null?D.companyNRR.Q3.toFixed(2)+'%':'Pending';
+  document.getElementById('q3cohnrr').textContent=D.cohortNRR.Q3.toFixed(2)+'%';
+  document.getElementById('q3cohnrrSub').textContent=fmt(coh.s)+' → '+fmt(coh.e)+' ARR';
+  document.getElementById('q3revret').textContent=pct(rr.a,rr.t);
+  document.getElementById('q3revretSub').textContent=fmt(rr.t)+' → '+fmt(rr.a)+' TCV';
+  document.getElementById('q3winback').textContent=fmt(wb.amt);
+  document.getElementById('q3ongoing').textContent=fmt(og.amt);
 }
 
 function renderRevRet(D){
@@ -400,7 +476,7 @@ function renderChurnReasons(){
 }
 
 function parseExpansionOpps(data){
-  const spots={Q2:[],Q3:[]};
+  const spots={Q3:[],Q4:[]};
   try{
     const eo=data['Expansion Opportunities'];
     if(!eo) return spots;
@@ -409,61 +485,93 @@ function parseExpansionOpps(data){
       const q=(row[0]||'').toString().toUpperCase().trim();
       const name=(row[1]||'').toString().trim();
       const type=(row[3]||'').toString().trim();
-      const tcv=parseFloat(row[5])||0;
+      const tcv=toNum(row[5])||0;
       const stage=(row[6]||'').toString().trim();
       const note=(row[7]||'').toString().trim();
       if(!name||tcv<=0) return;
       if(skip.some(s=>stage.toLowerCase().includes(s))) return;
-      if(q==='Q2'||q==='Q2/3') spots.Q2.push({name,type,tcv,stage,note});
-      if(q==='Q3'||q==='Q2/3') spots.Q3.push({name,type,tcv,stage,note});
+      if(q==='Q3'||q==='Q3/4') spots.Q3.push({name,type,tcv,stage,note});
+      if(q==='Q4'||q==='Q3/4') spots.Q4.push({name,type,tcv,stage,note});
     });
-    spots.Q2.sort((a,b)=>b.tcv-a.tcv); spots.Q2=spots.Q2.slice(0,5);
     spots.Q3.sort((a,b)=>b.tcv-a.tcv); spots.Q3=spots.Q3.slice(0,5);
+    spots.Q4.sort((a,b)=>b.tcv-a.tcv); spots.Q4=spots.Q4.slice(0,5);
   }catch(e){console.warn('Exp parse:',e)}
   return spots;
+}
+
+function parseFormulaTab(ft,D){
+  const QUARTERS=['Q1','Q2','Q3','Q4'];
+
+  // "Company Wide NRR" block: header row, then column-label row, then Q1-Q4 rows
+  // Columns: [blank, Quarter, Starting ARR, Expansion, Churn, Contraction, NRR]
+  const cwIdx=findRowIdx(ft,'Company Wide NRR');
+  if(cwIdx>=0){
+    QUARTERS.forEach((q,i)=>{
+      const row=ft[cwIdx+2+i];
+      if(!row) return;
+      const startARR=toNum(row[2]),exp=toNum(row[3]),churn=toNum(row[4]),contr=toNum(row[5]),nrr=toNum(row[6]);
+      if(!isNaN(nrr)) D.companyNRR[q]=+(nrr*100).toFixed(2);
+      D.companyWaterfall[q]={
+        startARR:isNaN(startARR)?(D.companyWaterfall[q]||{}).startARR||0:startARR,
+        exp:isNaN(exp)?0:exp, churn:isNaN(churn)?0:churn, contr:isNaN(contr)?0:contr,
+      };
+    });
+  }
+
+  // "Cohort NRR" / "Revenue Retention" block: [blank, Q, StartARR, EndARR, CohortNRR, blank, Q, Target, Actual]
+  const cohIdx=findRowIdx(ft,'Cohort NRR');
+  if(cohIdx>=0){
+    QUARTERS.forEach((q,i)=>{
+      const row=ft[cohIdx+2+i];
+      if(!row) return;
+      const s=toNum(row[2]),e=toNum(row[3]),nrr=toNum(row[4]);
+      if(!isNaN(nrr)){D.cohortNRR[q]=+(nrr*100).toFixed(2);D.cohortARR[q]={s:isNaN(s)?0:s,e:isNaN(e)?0:e};}
+    });
+  }
+
+  // "Churn (TCV)" / "Upsell (TCV)" / "Cross Sell (TCV)" / "Win Backs (TCV)" / "Ongoing (TCV)" block
+  // Columns: [blank,Q,ChurnAmt,ChurnCt,blank,Q,UpsellAmt,UpsellCt,blank,Q,CrossAmt,CrossCt,blank,Q,WinBackAmt,WinBackCt,blank,Q,OngoingAmt,OngoingCt]
+  const chIdx=findRowIdx(ft,'Churn (TCV)');
+  if(chIdx>=0){
+    QUARTERS.forEach((q,i)=>{
+      const row=ft[chIdx+1+i];
+      if(!row) return;
+      const amt=toNum(row[2]),cnt=toNum(row[3]);
+      if(!isNaN(amt)) D.churnTCV[q]={amt,count:isNaN(cnt)?0:cnt};
+      const wbAmt=toNum(row[14]),wbCnt=toNum(row[15]);
+      if(!isNaN(wbAmt)) D.winBackTCV[q]={amt:wbAmt,count:isNaN(wbCnt)?0:wbCnt};
+      const ogAmt=toNum(row[18]),ogCnt=toNum(row[19]);
+      if(!isNaN(ogAmt)) D.ongoingTCV[q]={amt:ogAmt,count:isNaN(ogCnt)?0:ogCnt};
+    });
+  }
+
+  // "Forecasted Expansions" / "Revenue Retention" (target/actuals) block
+  // Columns: [blank, Q, Upsell, CrossSell, blank, blank, Q, Target, Actual]
+  const feIdx=findRowIdx(ft,'Forecasted Expansions');
+  if(feIdx>=0){
+    QUARTERS.forEach((q,i)=>{
+      const row=ft[feIdx+2+i];
+      if(!row) return;
+      const u=toNum(row[2]),c=toNum(row[3]),t=toNum(row[6]),a=toNum(row[7]);
+      if(!isNaN(u)||!isNaN(c)) D.forecastExp[q]={u:isNaN(u)?0:u,c:isNaN(c)?0:c};
+      if(!isNaN(t)) D.revRet[q]={t,a:isNaN(a)?0:a};
+    });
+  }
 }
 
 function parseSheet(data){
   const D=JSON.parse(JSON.stringify(FB));
   try{
     const ft=data['Formula Tab'];
-    if(ft){
-      const nQ1=ft.find(r=>r[1]==='Q1'&&typeof r[6]==='number'&&r[6]>0.5);
-      const nQ2=ft.find(r=>r[1]==='Q2'&&typeof r[6]==='number'&&r[6]>0.5);
-      if(nQ1) D.companyNRR.Q1=+(nQ1[6]*100).toFixed(2);
-      if(nQ2) D.companyNRR.Q2=+(nQ2[6]*100).toFixed(2);
-      const cohRows=ft.filter(r=>['Q1','Q2'].includes(r[1])&&typeof r[4]==='number'&&r[4]>0&&r[4]<2);
-      cohRows.forEach(r=>{if(D.cohortNRR[r[1]]!==undefined){D.cohortNRR[r[1]]=+(r[4]*100).toFixed(2);D.cohortARR[r[1]]={s:r[2],e:r[3]};}});
-      ['Q1','Q2','Q3','Q4'].forEach((q,i)=>{
-        const row=ft[28+i];
-        if(row&&typeof row[6]==='number'&&row[6]>1000){D.revRet[q]={t:row[6],a:row[7]||0};}
-        if(row&&typeof row[2]==='number'){D.forecastExp[q]={u:row[2],c:row[3]||0};}
-      });
-    }
-    const cs=data['2026 CS'];
-    if(cs){
-      let tw=0,tc=0,aw=0,ac=0,tt=0,at=0,cw=0,cc=0,co=0;
-      cs.forEach(row=>{
-        if(row[0]!==2) return;
-        const type=(row[13]||'').toString();
-        if(!['Renewal','Win Back'].includes(type)) return;
-        const tcv=parseFloat(row[10])||0,arr=parseFloat(row[11])||0;
-        const status=(row[18]||'').toString().toLowerCase();
-        tt+=tcv;at+=arr;
-        if(status.includes('closed won')||status==='won'){tw+=tcv;aw+=arr;cw++;}
-        else if(status.includes('churn')){tc+=tcv;ac+=arr;cc++;}
-        else co++;
-      });
-      if(tt>0){D.q2TCV={total:tt,won:tw,churned:tc};D.q2ARR={total:at,won:aw,churned:ac};D.q2Counts={won:cw,churned:cc,open:co};}
-    }
-  }catch(e){console.warn('Parse:',e)}
+    if(ft) parseFormulaTab(ft,D);
+  }catch(e){console.warn('Formula Tab parse failed, using fallback:',e)}
   return D;
 }
 
 function updateDaysLeft(){
-  const days=Math.ceil((new Date('2026-06-30')-new Date())/(864e5));
+  const days=Math.ceil((new Date(QUARTER_END)-new Date())/(864e5));
   const el=document.getElementById('daysLeft');
-  if(el) el.textContent=days>0?days+' days remaining in Q2':'Q2 closed';
+  if(el) el.textContent=days>0?days+` days remaining in ${LIVE_Q}`:`${LIVE_Q} closed`;
 }
 
 async function init(){
@@ -475,18 +583,20 @@ async function init(){
     const data=await r.json();
     D=parseSheet(data);
     const live=parseExpansionOpps(data);
-    if(live.Q2.length) spots.Q2=live.Q2;
     if(live.Q3.length) spots.Q3=live.Q3;
+    if(live.Q4.length) spots.Q4=live.Q4;
     setStatus('ok','Live — '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));
   }catch(e){
     setStatus('err','Sheet unreachable — showing last data');
   }
   renderRetTable(D);
+  renderSealedCard('Q1',D);
+  renderSealedCard('Q2',D);
   renderProgressBars(D);
   renderRevRet(D);
   renderChurnReasons();
-  renderSpotlight('q2Spotlight',spots.Q2);
   renderSpotlight('q3Spotlight',spots.Q3);
+  renderSpotlight('q4Spotlight',spots.Q4);
   updateDaysLeft();
 }
 
