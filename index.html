@@ -588,12 +588,8 @@ async function fetchAiAnalysis(){
   const noteEl=document.getElementById('churnReasonsNote');
   if(churnBadge) churnBadge.textContent='· AI analysing…';
   try{
-    // Use text/plain content-type to avoid a CORS preflight, which Apps Script web apps don't handle.
-    const r=await fetch(APPS_URL,{
-      method:'POST',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body:JSON.stringify({action:'analyse'})
-    });
+    // GET, not POST — Apps Script web apps only return CORS headers on GET responses.
+    const r=await fetch(APPS_URL+'?action=analyse');
     if(!r.ok) throw new Error('HTTP '+r.status);
     const result=await r.json();
     if(result.error) throw new Error(result.error);
